@@ -10,9 +10,10 @@ collections: # A list of collections the CMS should be able to edit
     folder: "site/content/post" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - {label: "Title", name: "title", widget: "string"}
+      - {label: 'Region', name: 'region', widget: 'select', options: ['en', 'it'], required: true, default: it }
+      - {label: "Title", name: "title", widget: "string", default: "New Post" }
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Intro Blurb", name: "description", widget: "text"}
+      - {label: "Intro Blurb", name: "description", widget: "text", default: "Summary"}
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "pages"
@@ -22,6 +23,7 @@ collections: # A list of collections the CMS should be able to edit
         label: "Home Page"
         name: "home"
         fields:
+          - {label: 'Region', name: 'region', widget: 'select', options: ['en', 'it'], required: true, default: it}
           - {label: Title, name: title, widget: string}
           - {label: Subtitle, name: subtitle, widget: string}
           - {label: Image, name: image, widget: image}
@@ -41,6 +43,7 @@ collections: # A list of collections the CMS should be able to edit
         label: "Contact Page"
         name: "contact"
         fields:
+          - {label: 'Region', name: 'region', widget: 'select', options: ['en', 'it'], required: true, default: it}
           - {label: Title, name: title, widget: string}
           - {label: Logo, name: logo, widget: image}
           - {label: Body, name: body, widget: markdown}
@@ -58,6 +61,7 @@ collections: # A list of collections the CMS should be able to edit
         label: "Products Page"
         name: "products"
         fields:
+          - {label: 'Region', name: 'region', widget: 'select', options: ['en', 'it'], required: true, default: it}
           - {label: Title, name: title, widget: string}
           - {label: Image, name: image, widget: image}
           - {label: Heading, name: heading, widget: string}
@@ -71,6 +75,7 @@ collections: # A list of collections the CMS should be able to edit
         label: "Values Page"
         name: "values"
         fields:
+          - {label: 'Region', name: 'region', widget: 'select', options: ['en', 'it'], required: true, default: it}
           - {label: Title, name: title, widget: string}
           - {label: Image, name: image, widget: image}
           - label: Values
@@ -80,3 +85,31 @@ collections: # A list of collections the CMS should be able to edit
               - {label: Heading, name: heading, widget: string}
               - {label: Text, name: text, widget: text}
               - {label: Image, name: imageUrl, widget: image}
+
+      - file: "site/content/aggregate/_index.md"
+        label: "aggregate Page"
+        name: "aggregate"
+        fields:
+          - {label: 'Region', name: 'region', widget: 'select', options: ['en', 'it'], required: true, default: en}
+          - {label: Title, name: title, widget: string}
+          - {label: Image, name: image, widget: image}
+          - {label: Logo, name: logo, widget: image}
+          - {label: Body, name: body, widget: markdown}
+          - label: aggregate
+            name: aggregate
+            widget: list
+            fields:
+              - {label: Heading, name: heading, widget: string}
+              - {label: Text, name: text, widget: text}
+              - {label: Image, name: imageUrl, widget: image}
+          
+          - label: Contact Entries
+            name: contact_entries
+            widget: list
+            fields:
+              - label: Heading
+                name: heading
+                widget: string
+              - label: Text
+                name: text
+                widget: text

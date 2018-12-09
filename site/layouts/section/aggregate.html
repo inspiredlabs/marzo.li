@@ -1,5 +1,23 @@
 {{ define "main" }}
 
+<hr />
+
+<div class="bg-off-white pv4" style="background: lime;">
+	<div class="ph3 mw7 center">
+
+		<h2 class="f2 b lh-title mb3">Price</h1>
+
+		<div class="w-100 flex-ns mhn1-ns flex-wrap mb3">
+			{{ range first 6 (where .Data.Pages "Type" "price") }}
+				<div class="ph1-ns w-50-ns flex">
+					{{ .Render "li" }}
+				</div>
+			{{ end }}
+		</div>
+
+	</div>
+</div>
+
 
 <hr>
 {{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title) }}

@@ -2,7 +2,7 @@
 
 {{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title) }}
 
-<div class="mw7 center ph3 pt4">
+<div class="mw7 center ph3 pt4" style="border: 3px solid red;">
 
   {{ range $index, $element := .Params.banner }}
     {{ if modBool $index 2 }}

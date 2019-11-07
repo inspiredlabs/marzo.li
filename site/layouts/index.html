@@ -1,29 +1,576 @@
-{{ define "main" }}
+<!doctype html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name="theme-color" content="#000000">
+	<link href="favicon.png" rel="apple-touch-icon" />
+	<link href="favicon.ico" rel="shortcut icon" />
+	<title class="it" lang="it">Marz&ograve; | Marz&ograve; &egrave; un affresco, una ballata di parenti, amici, incontri fortuiti e fortunati.</title>
+	<title class="en" lang="en"></title>
+	<meta name=google content=notranslate><meta name=viewport content="width=device-width, initial-scale=1"><meta name=apple-mobile-web-app-capable content=yes /><meta name=apple-mobile-web-app-title content="Marzò"><meta name=description content="Marzò are olive oil, saffron and hemp growers.">
+	<!-- Matomo -->
+	<script type="text/javascript">
+	  var _paq = window._paq || [];
+	  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+	  _paq.push(['trackPageView']);
+	  _paq.push(['enableLinkTracking']);
+	  (function() {
+	    var u="//analytics.inspiredlabs.co.uk/";
+	    _paq.push(['setTrackerUrl', u+'matomo.php']);
+	    _paq.push(['setSiteId', '6']);
+	    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+	    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+	  })();
+	</script>
+	<noscript><p><img src="//analytics.inspiredlabs.co.uk/matomo.php?idsite=6&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+	<!-- End Matomo Code -->
+	<style type="text/css">.b-lazy{-webkit-transition:opacity 500ms ease-in-out;-moz-transition:opacity 500ms ease-in-out;-o-transition:opacity 500ms ease-in-out;transition:opacity 500ms ease-in-out;max-width:100%;opacity:0;}
+.b-lazy.b-loaded{opacity:1;}
+.seal{background-color:dimgray;background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjEyMCAtMzgzIDE0NDAgMTQ0MCI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTkyNy42IDM2Ni43Yy0yLjMgMzguMy0yMi45IDcyLTYwLjUgODVzLTgwLjItLjgtMTAzLjEtMzMuM2MtNDcuOS02OCAxOS0xNjEuMyA5OC44LTEzOC4yIDE4LjQgNS40IDM1LjMgMTYuOSA0Ni43IDMyLjMgNS42IDcuNSAxMCAxNS45IDEzLjEgMjQuNyAxLjEgMi45IDYuNyAyOS42IDUgMjkuNS0uMyA0LjEtLjEgMCAwIDB6bS0zNS41LTUuMmM3LjQgMCAxNSAuNSAyMi40IDAgNy41LS41IDcuNy0xLjYgNi41LTguOC0yLjEtMTMuMi03LjktMjYuMS0xNS44LTM2LjgtNy45LTEwLjUtMTguNC0xOS0zMC4xLTI0LjktMy42LTEuOC0zOS40LTE0LjUtNDAuNy03LjctLjcgMy45IDcuMiAxLjEgNy42IDEuNCA0LjEgMi43IDEuMiAxLjkgMS45IDUuMy0xLjMgMS40LTEuNyAzLTEuMyA0LjkgMS40IDEuOSAyLjggMy43IDQuMiA1LjUgMS40IDIuMSA0LjggNS44IDMuOSA4LjgtLjUgMS41LTE0LjkgMTAuNi00LjYgOS41IDEuOS0uMiA4LjUtOCAxMC44LTkuMiAzLjgtMi4xIDcuMy0yLjggMTEuNS0yLjggMy4yIDAgOC42IDEuNCAxMS45IDIuMyA3LjUgMS45IDYgLjMgNiA1LjctLjEgMy4xLTYuNiAxMC4yLTggMTMuNC0yIDQuNi0yLjYgOC42LTUuOCAxMi42LTQuMiA1LTE1LjcgOS4xLTEwLjYgMTcuOSAzLjcgNi40IDIzIDIuOSAzMC4yIDIuOXptLTExMy4zIDBjNy4xIDAgMjEuNiAzLjIgMjUuOS0zIDcuMS0xMC4xLTQuNi0xMi40LTkuOS0xNi42LTgtNi40LTUuNS0xMi44LTEwLjMtMjAuMy00LjEtNi40LTEzLjMtNS44LTMuMS0xMSA2LjQtMy4zIDIxLjItMy43IDI3LjktMSAyLjIuOSAxMiAxMi44IDExLjQgNi44LS4zLTMuMi00LjEtNC40LTUtNy0xLjItMy41LS44LTYuMy0xLjYtOS44LS45LTMuNy00LjktMi41LTMuNi03LjQgMS0zLjcgNi4xLTMuNCA3LjUtNi43LTcuMi0yLjctMjEuMiA2LjgtMjcuMSAxMC43LTkuNSA2LjMtMTcuOCAxNC43LTI0LjEgMjQuMi02LjMgOS42LTEwLjkgMjAuOC0xMi43IDMyLjEtMi4xIDE0LjMgMTQuMiA5IDI0LjcgOXptMTkuNC00Ni41Yy0uMyAxLjgtNS42LTEuMy01LjkgNC4yLS4zIDQuNyA0LjcgNi40IDYuOSA5LjEgNC45IDYgNy4zIDE0LjQgMTcuMyAxMy4xIDIuNy0uNCA3LTYgOS45LTQgNS4zIDMuNi01LjIgOC41LTYuNiA5LjUtNS42IDMuOS0xNC41IDE1LjgtMS43IDEwLjUgNy4xLTMgMTMuNy04LjEgMjIuNC01LjQgMy4xIDEgMTMuMiAxMi43IDEyLjYgMi42LS41LTcuMS0xMy42LTYuNi0xMy45LTEyLjYtLjQtOC4xIDE2LjMuMSAyMS4xLTIuNCAzLjktMi4xIDIuOC00LjEgNC44LTcuNSAxLjctMi44IDQuNC00LjUgNS44LTYuOCA1LjItOC40LS42LTEzLjYtOS40LTEwLjQtNi42IDIuNS0xMC4yIDEzLTE4LjEgMTEuNi0yLjctLjUtNi4zLTMuNS03LjEtNi4yLTItNi41IDQuOS03IDUuMy0xMS40LjQtNC4yLjUtNC00LjEtNi40LTMtMS42LTcuNC0zLjYtMTAuOS0xLjktNCAxLjktNS4xIDQuMS0zLjcgOC42IDEgMy4yIDUuOCAzLjUgNi41IDYuMiAyIDcuNC01LjcgMTMuOS0xMi40IDExLjYtNC40LTEuNi00LjYtNS44LTcuOC04LjMtMy42LTIuOC02LjItMy4xLTExLTMuN3ptOTkuMSA4OS40Yy41IDAtMSAxMi45IDIuMiAxMi45IDIuMSAwIDQuNC05LjEgNS4xLTEwLjcgMi45LTYuNSAzLjktNy4xLS4zLTEzLjUtNi40LTkuNy0xMi45LTE0LjEtMTQuNi0uNS0xLjMgMTAuMy00LjYgMTIuOS05LjIgMi4yLTIuOS02LjYtMTMtMTguNi0yMi4yLTEzLjgtMTUuNSA4LjEgMTcuOSAzNyA0LjQgMzguNC02LjMuNi0xNS41LTExLjEtMTkgLjItMy41IDExLjUgNy4xIDE2LjQgMTUuNiAxNy44IDMuNy42IDI1LjMgNy40IDI1LjUtMS4xLjEtMy4xLTI1LjMtNS41LTI3LjgtNi4yLTMtLjgtOC40LTEuMS05LjUtNC44LTEuNy01LjkgNC4yLTEuOSA2LjEtMS45IDYgLjIgMjIuOCA2LjQgMjcuMSAzLjcgNS40LTMuNC03LjgtMTcuMS0xMC42LTIxLjctMy42LTUuOC02LjYtMTUuMyAxLjctNy42IDIuOSAyLjcgMTMuNCAyMy4yIDE4LjggMjAuOSA1LjEtMi4yLS40LTI1LjggNS41LTI1LjUgMi4zLjEgMS4yIDkuOSAxLjIgMTEuMnptLTY0LjktMTguMmMtLjkgMCAyLjItMTIuNS01LjItOC4xLTUgMyAuMSAxNC43LTYuNCAxOC41LTE4LjggMTEuMS0xMS41LTI3LjItMjMuOC0xOC4xLTQuOSAzLjYtLjUgMTIuNy01LjkgMTYuNi02LjYgNC43LTEyLjYtMS4xLTE0LjgtNi44LTEuOC00LjYtLjItMTQuNi05LjEtOS43LTIuMSAxLjItOC42IDEzLjctOC41IDE1LjcuNiA3LjggNi4zIDEuMiAxMS40LjggMTAuNi0uNyA4LjQgNSAxMC45IDExLjggMi40IDYuNCA1LjEgOS4zIDguMiAyLjIgMy4xLTcuMi0uMy0xMi44IDEwLjQtMTQuMiA5LjgtMS4zIDkuOSAzLjUgMTEuMyAxMC45LjYgMy4zLjUgMTEuNiA2LjYgOC41IDQuOC0yLjQgMS4zLTEzLjkgNS41LTE3LjYgNi40LTUuNCA5LjQgMSA5LjQtMTAuNXptMCAyMy42Yy4xIDAgMS04LjUtMi45LTkuMi01LjYtMS00LjIgMTMuNy02LjggMTYuNy0xMy45IDE1LjktMTYuMy0xNi40LTIwLjktMTcuMi0xMS45LTIuMS0yLjggMjEuMy0xNy4zIDE5LjItMTAuMS0xLjQtNS4yLTEwLTguNy0xNS4zLTMtNC41LTkuOC00LjYtMTEuNCAxLjUtMS42IDUuOSA1LjcgMTEuMiA5LjUgMTQgMi4yIDEuNiA0LjQgMS41IDYuMiAzLjkgMS43IDIuNC44IDUuNCAzLjEgNy42IDcuMyA2LjkgNC40LS44IDYuOC01LjYgMi42LTUuMiAxMS4zLTguNiAxNi42LTUuNCA2LjkgNC4yLjggMTIuOSA1LjYgMTcuMiA1LjUgNC45IDYuNC0xIDcuNi01LjYgMS45LTcuOCAxLjMtNy44IDcuMy0xMiA1LTMuNSA1LjMtMS40IDUuMy05Ljh6bTAgMjguNGMtMS4zIDAgMy40LTE0LjMtNC0xMi45LTUuMi45LTIuNCAxMS4xLTQuNyAxNC44LTMuMiA1LjMtOS43IDYuMi0xNC40IDIuMi01LjItNC4zLTEuMi0xNS4xLTYuNi0xNy42LTUuOS0yLjctOC4yIDQuOS04LjEgOS4xLjEgNi4xIDEuNCA2LjQgNy4zIDkuMyA2LjQgMy4xIDEzLjMgNS4zIDIwLjMgNi42IDExLjQgMi4zIDEwLjItLjYgMTAuMi0xMS41em03My41LTY2LjljMCAzLjItMTUuOS0uNS0xNS42IDEuOS44IDUuNCAxNi4zIDkuNCAxOS41IDE0LjMgMS41IDIuNC4xIDE1LjEgMyAxNS43IDEgLjMgMjIuNy00MC44LTYuOS0zMS45em0tNjMuNyAxOGMwIDUuNi0yLjUgMTcuMyA0LjggMTguNiA5LjYgMS44IDIuMS0xMC42IDEuMy0xNS40LS42LTMuNSAxLTIwLjgtMi44LTIxLjEtNS44LS40LTMuMyAxNC45LTMuMyAxNy45em0tMjYuNS0xNy45Yy0yLjctLjItNS40IDAtOC4xLjctMi44IDYuNSA0LjMgMjMuNiAxMiAxNS41IDUuNS01LjkgNC43LTE2LjctMy45LTE2LjJ6bS0yOS45IDBjLTMtLjEtNiAuMS05IC44IDEzIDE5LjYgNC4yIDIyLjEgMTcuOC4xLTUuOS0zLjUtOC44LTMuOC04LjgtLjl6bTU2LjUgNzNjLTQuNCAwIDIyLjUgMTQuNiAyMi45IDEuMSAwLS4zLTIyLjEtMTIuOC0yMi45LTEuMXptMjYuNS03My4xYzAtMi4yLTEyLjEgMS40LTExLjcgMS43IDIuOCAyLjUgMjAuMyA5LjggMjMuNSA3LjYgNy42LTUuMS01LjUtMTEuMi0xMS44LTkuM3ptLTEwOS4xLS4xYzAtLjMtMTIuOSA2LjgtNC40IDEzLjggMS44IDEuNCA5LjYtMTIuNCA5LjktMTIuOC0xLjgtLjktMy43LTEuMi01LjUtMXptNzIuNi05LjhjMC0xLjEgOC42IDEuNCA4LjYtLjkuMS02LjctMzEuMi45LTguNi45em0tNC45LTc5Yy0zLjEtLjEtNS40LjUtNi44IDEuOCAwIDMuMiAxMC4xLS40IDEwLjgtLjgtMS4yLS4zLTIuNi0uNy00LTEtMi4xLjMgMS40LjMgMCAwem0tMy41LTQ3LjVjLTYuMy0zLjMtNDguMS0yNS4yLTI1LjYtMjkuOSAzLjgtLjggNi4xIDguNyA5LjQgNy44IDEzLjktMy41LTEuNC02LjQgNC4xLTEzLjUgMTAuNi0xMy42IDExLjUgMTEuMSAyMi43IDYuOCAzLjMtMS4zLTQuNS0xMi41IDUtMTMuOCAxMC4yLTEuNCA0LjIgNy43IDcuNyAxMC0uMiAyLjEuMyA0IDEuNSA1LjggMy40LS4zIDUuOC0yLjEgNy01LjEgMy45LS43IDIuMy0xMC43IDEyLjItNC43IDcuNiA0LjYtNi44IDExLjkgOC43IDEwLjMgNC44LS41IDE4LjMtMTIuMyAxMy42IDMuMS0zLjQgMTEuMS0yNSAxMy44LTMxLjYgMjIuOSAxMi4xIDguMyAyMy43IDEwLjkgMzUuNSAyMS40IDIuNyAyLjQgMjcuNCAyNSAzMC40IDEyLjggMS42LTYuMi05LjYtOC42LTItMTcuOSA1LjEtNi4yIDE1LjQtNy4yIDIxLjQtMS45IDExLjYgMTAuMSAwIDE5LjUtMS40IDI5LTEuNyAxMS41LTUuNCAxLjcgMi4yIDExLjMgNy41IDkuNSAxNi44IDEyLjMgMjIuNyAyNC43IDQuOCAxMC4xIDcuMSAyMS41IDYuMiAzMi43LS43IDguOC0zLjQgMjMuOC0xMi42IDI3LjktNi45IDMuMS0xMS45LTIuNS0xNy42LTMtMi42LS4zLTQuNiAxNC43LTMuOCAxNmwxOC4xIDYuMmM0LjcgNC41IDYuOSAxOCAuOCAyMi43LTExLjkgOS4yLTctNS42LTEyLjktNy4yLTMuNi0uOS40IDQ3LjUtMTkuMyA0OS4zLTEyIDEuMS0xOC4yLTguNC0zMS4xLTUtMTcuMyA0LjYtMjguMSAxNS45LTQ3LjQgMTcuOS0xNy4xIDEuNy0zNS43LS41LTUxLjMtOC0xMy45LTYuNi0xNy0xMi40LTMyLjYtOC45LTEzLjMgMy0yMi4zIDguNS0yNy43LTguMi0uOC0yLjQtMS0zOC42LTMtMzYuOC02LjcgNS45LTE2LjIgMTguNC0xNy45LTIuMy0xLjUtMTkgMjAuNy0xMiAxOS44LTI1LjItLjctMTEuNy02LjctNC4yLTE1LTYuNi05LjMtMi43LTEzLjItOS41LTE1LjctMTktNS4xLTE5LjggMi44LTQ1LjcgMTcuMS01OS44IDMtMi45IDE1LTcuNCAxNi40LTkuOSAzLjUtNi4xLTIuNC03LjItNS41LTE0LjEtOS40LTIxIDE4LjEtMzkuNCAyNS41LTE3LjIgMS41IDQuNC00LjkgMTEuMy0xLjkgMTQuNSA2LjggNy4yIDIwLjgtNy43IDI1LjEtMTEuNCAxNi4yLTEzLjcgMjMuOS0xNy42IDQyLjgtMjMuN3ptLTg1LjMgMTMxLjZjNC41IDQxIDIyLjkgNzcuMSA2My40IDkyLjkgMzguOSAxNS4yIDgzLjkgMy40IDExMC44LTI4LjMgNTguMy02OC45LTItMTc2LjQtOTEtMTYyLjYtNTAuNSA3LjktNzguMSA1MC42LTgzLjIgOTggLjQgMy45LjUtNC4yIDAgMHptMTg2LjctMTA3LjdjLS45LjcgMTMuNiA3LjMuOCAxNS41LTEzLjcgOC44LTI3LjUtNy45LTM2LjYtMTQuOS0xMC44LTguNC0yNC41LTI1LjEtMzkuNy0xNC44LTE5LjUgMTMuMyAzLjEgMTIuNSA2LjMgMTMuMyA1LjYgMS40IDEzLjgtMi42IDI0LjggNC4xIDkgNS41IDI3LjcgMjkuNyA0MS4zIDIyLjUgMjAuMyAwIDMwLjgtNDYuOSAzLjEtMjUuN3ptLTg5LjQtMy4yYzYuNy0zOC4yLTUyLjkgOS4yLTU1LjQgMTEuNS0yMCAxOC00OC4zIDYuMy0yNy43LTYuMyAyLjMtMS40LTIyLjQtMTkuOS0xNi45IDcuMiA1LjUgMjYuOSAzNi40IDEyLjQgNDkgMy45IDcuNC00LjkgMTMuNC0xNS4xIDIyLjQtMTcuNCA3LjUtMS45IDEyLjggNC41IDE2LjMgNC4xIDYuOS0uNyAxMi4zLS4xIDEyLjMtMyAyLjctMTUuMyAwIDEuMyAwIDB6bTEzMy41IDg0LjZjLS45LTE0LjgtMTguOS00OS42LTMxLjQtNDkuMy0yNCAuNi04LjMgMTIuMi03LjcgMTIuOS0xLjgtMi4zIDEwLjIuMyAxMS40IDEuMSA2LjQgNC4yIDEwLjkgMTYuNyAxMi44IDI0IDIuMiA4LjYgNi4zIDMzLjYtMTAuNiAzMC42LTEuNyAyNi4xIDIxLjkgMS4xIDI0LjgtOC44IDEuOS02LjMuNi0xMC45LjctMTAuNXptLTI2MS4xLS42Yy44IDE0LjkuOCAyNi44IDE2LjUgMzAuOCAxMi40IDMuMiAxMi45LTkuOSA2LjctOS41LTEwIC42LTEwLjktMTguMy0xMC45LTE4LjQtMS4yLTkuOCA1LjItMjguNyAxMy4xLTM1IDEuNi0xLjIgMTIuMi00LjIgMTYuNi0zLjYgMi42LjQgNC45LTIgNC40LTQuNi0uOS00LTUuMy03LjgtMTEtOC4yLTIyLjQtMS42LTM1LjYgMzAuMS0zNS40IDQ4LjUtLjItMi4yLS4yLTExLjIgMCAwem0yNDQuMiAyLjRjLS41LTUuNy0zLjQtMjUuOS05LjgtMjgtMS4yLS40LTggMi40LTguOCAzLjItMi44IDIuNiAxLjMgMTMuMSAyLjIgMTUuOSAxLjUgNC42IDEuNiAxMy41IDQuNCAxNy4zIDcuMSA5LjggMTIuNS4zIDEyLTguNC0uMS0xLjguMiAzLjMgMCAwem0tMjI3LjMtLjJjLjUgNi4yIDMuNSAyMC4yIDkuOSA3LjcgMS43LTMuMyAyLTkuNiAzLjEtMTMuMyAxLjMtNC4yIDQuOC05LjQgNS4xLTEzLjYuNC01LjEgMS42LTMuNi0zLjItNi4zLTMuMi0xLjgtMi44LTMtNi4zLS45LTUuNiAzLjQtOC42IDIwLjktOC42IDI2LjQuMiAyLjEgMC03IDAgMHptMzQuMiAxMDkuNWMyLjMtNC4yLTIwLjMtMTkuOS0xOC45LTIzLjctNS40IDE0LjcgMTAgMzkuMiAxOC45IDIzLjd6bTE3OC0xNi41Yy0uMS0yLjUtLjUtNS0xLjEtNy40LTIuMiAxLjctMTkuNSAyMS0xNy42IDI0LjQgNy41IDEyLjcgMTguOS0xNC41IDE4LjctMTd6bS0yNC44IDEwLjhjOC43LS4zIDI0LjUtMzEuNiAxOS42LTMyLjctNi4zLTEuNS0xOS43IDMyLjUtMTkuNiAzMi43em0zNS4xLTUxLjljLS42IDIuNC0xMSAyLjgtNS44IDgtMS43LTEuNyAxMi44IDEyLjcgMTAuOCAxMS45IDUuNCAyLjMgMy0xOC01LTE5Ljl6bS0yMjggMTBjMCAxLjMgMi4xIDEyLjYgNi4zIDkgNC40LTQgLjItMTEuOCAxMS44LTcuNS0zLjItMS4xLTkuNC0yNC44LTE4LjEtMS41em0xMjEuNi0xNzguOWMwLS42LTEyLjUgMS4zLTEzLjQgMi45LTIuOCA0LjggOC42IDYuMSAxMi4yIDYgMTIuNy0uMyAxOC4yLTguOSAxLjItOC45em0tOTUuMyAxOTMuNGMtMi44IDkuNSAxMC45IDI2LjkgMTcuOSAyNy41IDUuNi0yLjQtMTYuNC0yNi4yLTE3LjktMjcuNXptMTM0LjQtMTQ4YzEuOC0yLjctMTUuNS0xNC42LTE5LjktMTAuNy01LjggNS4xIDE2LjkgMTAuMSAxOS45IDEwLjcuMS0uMS0uOS0uMiAwIDB6bS02NS41LTExLjdjLTUgMS0xMS41IDQuNC0xNC4xIDguOSAzLjcuMSAxMC4xLTEuMSAxMy4zLTMgMS44LS45IDguOC02IC44LTUuOS0uMy4xIDEuNSAwIDAgMHptMTAxLjEgMzEuM2MwIC4xLTUuNS0xLTYuMS4xLS45IDEuNiA2IDggNy40IDhzNC45LTQuNiA1LTUuNWMuMi0zLjctMS41LTIuNi02LjMtMi42IDAtLjEgMS43IDAgMCAwem0tODEtNTIuNGMtMS44IDUuMiAxMC42IDcuNCAxNCAyLjggNC42LTYuMi05LjItMy4zLTE0LTIuOC0uMS4yLjYgMCAwIDB6bS03NS4xIDUyLjJjLTE2LjguNyA5LjggMTEuMyA1IC45LTEuNS0uOS0zLjEtMS4yLTUtLjktMS4yLjEgMS4xLjEgMCAwem03OC40LTkxLjdjLS4xIDYuMSA1LjMuMSA1LjIuMS4xLS4xLTUuMS02LjEtNS4yLS4xem0yNi44IDQuMmMwLTYuMy01LjUtLjEtNS41LS4xLS4xIDAgNS41IDYuNCA1LjUuMXptMjIuNyA2LjdjLjEtNS45LTUuMi0uMi01LjItLjJzNS4xIDYuMSA1LjIuMnptLTY3LjQtOC4yYzAtNS43LTUgMC01IDAtLjEgMCA1IDUuOCA1IDB6bS0yMS40IDEwLjJjMC01LjktNS4yIDAtNS4xIDAgMCAwIDUuMSA1LjggNS4xIDB6bTU4LjMgMTIuM2M2LjcgOS40IDgtMTcuMyAwIDAgLjYuOC44LTEuNiAwIDB6bS00MC4yLTMuNGMuNCAyLjUgNC42IDguMSA2LjYgNCAxLjktMy43LTMuNi03LjgtNi42LTQgLjIgMS45LjUtLjYgMCAwem0tNzAuOSA5MC4zYy0uMi01LjQtNy4yLTMuMS02LjEtMS4xIDEgMS44IDYuMyA2LjQgNi4xIDEuMXptMTg3LjYgMi41YzUuOCAwIDIuOS03LjUuOC02LjEtMS41IDEtNS44IDYuMS0uOCA2LjF6bS04OC4yLTk0YzIuMyAxLS43IDIuOSAzLjMgMi4yIDIuMS0uMy4xLTExLjEtMy4zLTIuMi4xLjEuMy0uOSAwIDB6bS05LjkuM2MzLjYtMS41LTkuMi02LjgtNC0uMiAxLjQgMS44IDMuOCA0LjQgNCAuMi4xIDAgMCAuMiAwIDB6TTkwNy41IDE3OGMtMTA0LjItNTUuMS0yMTMgMzUuOC0yMjYuNyAxNDEuMi0xNC41IDExMS4yIDY3LjUgMTk5LjIgMTc4LjUgMTkzLjEgMTYzLjctMjAuMiAxODctMjYwLjcgNDguMi0zMzQuMy0yOC0xNC44IDYzLjQgMzMuNiAwIDB6bTcwLjEgMjI3LjljLTIyLjUgNTkuOS03OS4zIDk2LjEtMTM5LjMgOTYuNS0xMDMuNy43LTE2Ny45LTEwNS45LTE0NS42LTIwMC40IDE5LjUtODIuNiAxMDMuNS0xNTUuMyAxOTAuMS0xMjIuMSA4OS4xIDM0LjEgMTI3LjQgMTM5LjQgOTQuOCAyMjYtOS4yIDI0LjUgMjAuNi01NC44IDAgMHpNODM4LjMgNTAyLjR6TTk1My42IDI0MC42Yy01MC42LTcxLTE1Mi40LTc5LjItMjEyLjQtMTYuMS00Ni40IDQ4LjctNjAuNiAxMTYuNy0zOC43IDE3OS42IDI5IDgzLjEgMTQ1LjQgMTIxLjUgMjE3LjUgNjkuMiA3MS43LTUyLjIgODMuNy0xNjIuMyAzMy42LTIzMi43LTM3LTUxLjkgMzcuNiA1Mi44IDAgMHptLTEwNy43IDI1M2MtNzUuNy0uNC0xMzctNTIuMS0xNDgtMTI3LjQtMTEuNi03OSA0NS40LTE3MS4yIDEyOS0xNzkuOSAxODguNi0xOS41IDIwNS4yIDMwMS44IDE5IDMwNy4zeiIvPjwvc3ZnPg==');background-position:center center;background-repeat:no-repeat;background-size:cover;}
+	</style>
+	<style type="text/css">html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}input,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}input{overflow:visible}select{text-transform:none}[type=submit]{-webkit-appearance:button}[type=submit]::-moz-focus-inner{border-style:none;padding:0}[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}a,article,blockquote,body,div,fieldset,figure,footer,form,h1,h2,h3,h4,header,html,input[type=email],legend,li,main,nav,p,section,textarea,ul{box-sizing:border-box}.aspect-ratio{height:0;position:relative}.aspect-ratio--16x9{padding-bottom:56.25%}.aspect-ratio--object{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;z-index:100}.cover{background-size:cover!important}.bg-center{background-position:50%}.bg-center{background-repeat:no-repeat}.ba{border-style:solid;border-width:1px}.bl{border-left-style:solid;border-left-width:1px}.b--black{border-color:#000}.b--black-025{border-color:rgba(0,0,0,.025)}.b--transparent{border-color:transparent}.top-0{top:0}.cf:after,.cf:before{content:" ";display:table}.cf:after{clear:both}.cf{*zoom:1}.cb{clear:both}.dn{display:none}.db{display:block}.dib{display:inline-block}.dt{display:table}.dtc{display:table-cell}.flex{display:flex}.justify-between{justify-content:space-between}.fr{_display:inline}.fr{float:right}.avenir{font-family:avenir next,avenir,sans-serif}.athelas{font-family:athelas,georgia,serif}.b{font-weight:700}.fw4{font-weight:400}.fw6{font-weight:600}.fw9{font-weight:900}.input-reset{-webkit-appearance:none;-moz-appearance:none}.input-reset::-moz-focus-inner{border:0;padding:0}.h3{height:4rem}.vh-100{height:100vh}.tracked-mega{letter-spacing:.25em}.lh-title{line-height:1.25}.lh-copy{line-height:1.5}.w3{width:4rem}.w-10{width:10%}.w-80{width:80%}.w-100{width:100%}.overflow-hidden{overflow:hidden}.relative{position:relative}.fixed{position:fixed}.black-90{color:rgba(0,0,0,.9)}.black-70{color:rgba(0,0,0,.7)}.black-60{color:rgba(0,0,0,.6)}.black-50{color:rgba(0,0,0,.5)}.white-70{color:hsla(0,0%,100%,.7)}.black{color:#000}.white{color:#fff}.bg-black-05{background-color:rgba(0,0,0,.05)}.bg-black{background-color:#000}.bg-near-white{background-color:#f4f4f4}.bg-white{background-color:#fff}.bg-transparent{background-color:transparent}.hover-white:focus,.hover-white:hover{color:#fff}.pa1{padding:.25rem}.pa2{padding:.5rem}.pa3{padding:1rem}.pa4{padding:2rem}.pb3{padding-bottom:1rem}.pb5{padding-bottom:4rem}.pt4{padding-top:2rem}.pv2{padding-top:.5rem;padding-bottom:.5rem}.pv3{padding-top:1rem;padding-bottom:1rem}.ph0{padding-left:0;padding-right:0}.ph2{padding-left:.5rem;padding-right:.5rem}.ph3{padding-left:1rem;padding-right:1rem}.ph4{padding-left:2rem;padding-right:2rem}.mb0{margin-bottom:0}.mb3{margin-bottom:1rem}.mb4{margin-bottom:2rem}.mb5{margin-bottom:4rem}.mt2{margin-top:.5rem}.mt3{margin-top:1rem}.mh0{margin-left:0;margin-right:0}.no-underline{text-decoration:none}.tr{text-align:right}.tc{text-align:center}.ttu{text-transform:uppercase}.f-headline{font-size:6rem}.f2{font-size:2.25rem}.f3{font-size:1.5rem}.f4{font-size:1.25rem}.f5{font-size:1rem}.f6{font-size:.875rem}.measure{max-width:30em}.measure-narrow{max-width:20em}.truncate{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.center{margin-left:auto}.center{margin-right:auto}.clip{position:fixed!important;_position:absolute!important;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px)}.v-mid{vertical-align:middle}.v-btm{vertical-align:bottom}.grow{-moz-osx-font-smoothing:grayscale;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:translateZ(0);transform:translateZ(0);transition:-webkit-transform .25s ease-out;transition:transform .25s ease-out;transition:transform .25s ease-out,-webkit-transform .25s ease-out}.grow:focus,.grow:hover{-webkit-transform:scale(1.05);transform:scale(1.05)}.grow:active{-webkit-transform:scale(.9);transform:scale(.9)}.pointer:hover{cursor:pointer}@media screen and (min-width:30em){.bw2-ns{border-width:.25rem}.dib-ns{display:inline-block}.dt-ns{display:table}.dtc-ns{display:table-cell}.dt--fixed-ns{table-layout:fixed;width:100%}.vh-75-ns{height:75vh}.tracked-mega-ns{letter-spacing:.25em}.lh-title-ns{line-height:1.25}.pa2-ns{padding:.5rem}.pb4-ns{padding-bottom:2rem}.ph0-ns{padding-left:0;padding-right:0}.ph1-ns{padding-left:.25rem;padding-right:.25rem}.ph4-ns{padding-left:2rem;padding-right:2rem}.f1-ns{font-size:3rem}.f3-ns{font-size:1.5rem}.f4-ns{font-size:1.25rem}.f5-ns{font-size:1rem}.f6-ns{font-size:.875rem}}@media screen and (min-width:30em) and (max-width:60em){.vh-75-m{height:75vh}.ph4-m{padding-left:2rem;padding-right:2rem}.f1-m{font-size:3rem}.f2-m{font-size:2.25rem}.f4-m{font-size:1.25rem}}@media screen and (min-width:60em){.ph3-l{padding-left:1rem;padding-right:1rem}.ph4-l{padding-left:2rem;padding-right:2rem}.ph5-l{padding-left:4rem;padding-right:4rem}.f-headline-l{font-size:6rem}.f1-l{font-size:3rem}.f5-l{font-size:1rem}}
+a[href^="x-apple-data-detectors:"]{color:inherit !important;text-decoration:none !important;font-size:inherit !important;font-family:inherit !important;font-weight:inherit !important;line-height:inherit !important;}
+*{-webkit-border-radius:0px;-moz-border-radius:0px;-o-border-radius:0px;border-radius:0px;border:0px;}
+.langSelect{display:inline-block;width:100%;min-width:5.0rem;background:white;background-image:url(data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20fill%3D%22%23555555%22%20%0A%09%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%22-261%20145.2%2024%2024%22%20style%3D%22enable-background%3Anew%20-261%20145.2%2024%2024%3B%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cpath%20d%3D%22M-245.3%2C156.1l-3.6-6.5l-3.7%2C6.5%20M-252.7%2C159l3.7%2C6.5l3.6-6.5%22%2F%3E%0A%3C%2Fsvg%3E);background-repeat:no-repeat;background-position:right center;cursor:pointer;outline:0;border:0;border-radius:0;-webkit-appearance:none;-moz-appearance:none;appearance:none;}
+.visually-hidden{position:absolute !important;clip:rect(1px 1px 1px 1px);clip:rect(1px, 1px, 1px, 1px);padding:0 !important;border:0 !important;height:1px !important;width:1px !important;overflow:hidden;}
+.headerHidden{opacity:0;transition:opacity 1s ease-in-out;}
+.showHeader{opacity:1;transition:opacity 1s ease-in-out;}
+.en{display:none;}
+.text-shadow{text-shadow:0px 2px 2px #232323;}
+@-webkit-viewport{width:device-width;zoom:1.0;}
+@-moz-viewport{width:device-width;zoom:1.0;}
+@-ms-viewport{width:device-width;zoom:1.0;}
+@-o-viewport{width:device-width;zoom:1.0;}
+@viewport{width:device-width;zoom:1.0;}
+.gumshoe{list-style:none;}
+.gumshoe li{display:inline-block;float:left;}
+.gumshoe li.active{}
+.gumshoe li.active a{color:white;opacity:1;text-decoration:underline;}
+@media screen and (max-width:30em) and (orientation:portrait){.f0{font-size:.5rem;letter-spacing:.4em;}
+.gumshoe li{float:right;}
+}
+@media screen and (max-width:30em) and (orientation:landscape){.f0{font-size:.7rem;letter-spacing:.1em;}
+.gumshoe li{float:left;}
+}
+.bg-near-white, .hover-bg-black-05:hover{background-color:#f2f2f2;}
+	</style>
+	<style type="text/css">.slideshow-image{position:absolute;width:100%;height:100%;animation-duration:32s;animation-name:kenburns;animation-timing-function:linear;animation-iteration-count:infinite;}
+.slideshow-image:nth-child(1){animation-name:kenburns-1;background:no-repeat 50% 60%;background-size:cover;z-index:3;}
+.slideshow-image:nth-child(2){animation-name:kenburns-2;background:no-repeat 10% 30%;background-size:cover;z-index:2;}
+.slideshow-image:nth-child(3){animation-name:kenburns-3;background:no-repeat 0% 60%;background-size:cover;z-index:1;}
+.slideshow-image:nth-child(4){animation-name:kenburns-4;background:no-repeat 50% 25%;background-size:cover;z-index:0;}
+@keyframes
+kenburns-1{0%{opacity:1;transform:scale(1.0);}
+1.5625%{opacity:1;}
+23.4375%{opacity:1;transform:scale(1.1);}
+26.5625%{opacity:0;transform:scale(1.1);}
+98.4375%{opacity:0;transform:scale(1.0);}
+100%{opacity:1;transform:scale(1.0);}
+}
+@keyframes
+kenburns-2{23.4375%{opacity:1;transform:scale(1.0);}
+26.5625%{opacity:1;}
+48.4375%{opacity:1;}
+51.5625%{opacity:0;transform:scale(1.1);}
+100%{opacity:0;transform:scale(1.0);}
+}
+@keyframes
+kenburns-3{48.4375%{opacity:1;transform:scale(1.0);}
+51.5625%{opacity:1;}
+73.4375%{opacity:1;}
+76.5625%{opacity:0;transform:scale(1.1);}
+100%{opacity:0;transform:scale(1.0);}
+}
+@keyframes
+kenburns-4{73.4375%{opacity:1;transform:scale(1.0);}
+76.5625%{opacity:1;}
+98.4375%{opacity:1;}
+100%{opacity:0;transform:scale(1.1);}
+}
+	</style>
+</head>
+<body class="bg-black" id="home">
+<header class="avenir flex justify-between fixed w-100 ph3 ph4-m ph5-l top-0" id="header" style="z-index:200">
+<nav class="dt w-100">
+<div class="dtc v-mid w-10">
+<a class="no-underline" data-scroll href="#home">
+  <svg class="dib w3 h3 pt4 pb3" data-icon="logo" style="fill:white" viewbox="0 0 512 280">
+    <title>Marzo</title>
+    <path d="M442.1 91.3c8.9-15.3 20.5-27.8 36.5-35.4 4.3-2.1 9.7-2.7 14.3-3.3 4.6-.6 11 4.6 11.8 9 .2 1.3-1.3 4-2.7 4.9-9.7 5.2-18 11.8-25.3 19.7-5.2 5.6-28.4 44.8-14.9 48.5 16.8 4.4 36.7-38.5 35.5-56.8 0-3.7 3.1-4.9 7-2.3 4.6 3.1 7.3 11.2 6 17.2-1.7 7.3-5.2 15.3-9.9 22.6-8.1 12.7-21.9 28.4-37.7 29.9-19.3 1.7-29.6-19.3-27.1-36.7 1.1-5.9 3.2-11.9 6.5-17.3zm56.7-55.3c-1.6 1.6-3.1 3.7-5 5.4-2.1 2.1-4.3 1-6.6-.6-8.1-5.8-15-12.6-21.1-20.9-1.7-2.7-2.3-5.4-.6-7.9 2.3-3.3 5.4-6.6 8.1-9.3 2.5-2.5 5.6-1.7 7.2 1.6 5.6 9 10.9 18.2 16.2 27.5 1 1.2 1 2.1 1.8 4.2zm-80.3 1.6c-8.5-.6-19.9 7.2-39.4 6-3.3-.2-1.3 3.9-1 6.7 1 4.9.2 9.3-1 14.1-5 21.1-26.6 57-47.7 69.7-9.9 7.3-11-2.1-8.5-10.4 4-13.7 14.1-29.4 12.6-43.7-1.9-17.6-16.6-15.3-21.5-30.2-2.1-7.2 5.6-15 7.7-21.5 1.7-5.8 2.9-14.1-3.7-17.6-8.1-4.6-16.6 8.3-19.3 14.5-1.9 3.9-4.3 9-4 13.7 0 4.6 4 7.7 5 12.2 2.3 8.5-25.7 43.7-32.5 51.2-4.9 5.8-14.7 20.6-23.8 17.8 5.4-10.9 27.5-37.1 6.4-45.1-7.7-2.9-13.3 8.1-17 13.3-6.6 9-13.5 17.8-20.9 26.1-3.9 4.3-7.3 8.1-11 12.2-2.5 2.9-6 8.1-10 9.3-5.6 1.3-3.1-3.5-1.3-7.3 1.9-5.4 4.9-11 7.3-16.2 9-16.8 23.4-33.8 40.5-42.9 3.9-2.1 7.7-3.5 12.2-4.6 2.5-.6 9-.2 11-2.5 4.6-5.4-7-13.5-11.2-14.7-11.2-3.1-23.9 1.3-35.5 7.2-9 4.6-23.2 16.6-35.4 32.5-27.8 35.8-57.8 71.3-58.1 47.5-.4-10.6 15.3-24.5 20.6-33.6 5.2-8.5 11.4-17.6 5.2-27.8-14.1-23.4-39.8 10.3-49.8 21.1-.6-4.3 7.6-14.7 9.3-18.6 2.1-3.9 4-7.7 4.4-12.2.6-9.5-7.6-19.3-16.6-21.2-10.6-1.9-21.9 13.7-28.4 20.3-9.1 9.2-17.1 19.1-25.1 29.5 1.7-8.5 8.3-16.6 8.1-25.5-.2-6.2-8.5-20.3-15.5-12.6-2.5 3.1-3.9 10.3-5.2 13.9-1.9 5.2-4.3 10.4-6.6 15.6-5 10.4-10.4 20.9-15 31.5-3.7 8.7-6.2 17-.6 25.5 3.1 4.6 11.6 12.7 17.3 8.7 3.3-2.3 4.6-8.1 6.2-11.6 2.1-4.4 4-9 6.4-12.9 5.3-10.8 11.4-20.6 18.4-30.5 7.6-11 15.5-22.2 24.3-31.9 1.3-1.3 3.1-2.5 5-3.9 2.5-1.2 2.5-1.7 3.1 2.3.2 2.3-1.2 4.6-2.3 6.6-4.6 9-10.6 17.4-15.9 26.1-5.4 9-12.2 18.7-7.7 29.6 2.5 6.6 10.4 14.7 18 11.4 8.3-3.1 15.5-18.2 20.9-24.9 7.2-9 14.1-17.6 21.6-26.3 1.6-1.7 6.7-8.3 8.7-4.6 1.2 1.7-7.2 13.3-8.7 15.6-8.9 14.7-31.5 41.4-7 53.1 21.5 10.4 38.8-14.5 51.6-27.8-.6 14.7 7 34.2 25.1 30.9 7.7-1.2 14.1-9 19.2-14.7 6.4-7.7 12.2-16.2 18.2-24.5 3.5 8.1 7.2 17.6 16.4 20.9 10.9 3.9 17.8-6.4 23.4-13.7 15.6-18.9 28.9-39.6 42.3-60.1 11.8 8.1 4.3 18-1.7 27.8-5.8 9-12.6 18.6-14.9 29.4-4 19.9 15.6 40.2 36.1 32.5 28.6-11 53.5-59 61.1-81.3 2.1-6.4 11.4-7 17.2-8.5 4-1 8.3-2.1 11.2-3.1-1.7 13.3-19.7 36.9-25.5 42.1-4.6 4-11 8.3-9.5 15.3 1.7 7.7 5.8 15 7.2 23.4 3.3 18 1 43.3.2 47.4l-20.9 9.3c-24.5 10.6-122.1 67-67.8 84.9 27.6 9 61.4-3.7 81.3-27.1 8.5-10 15.9-21.6 22.2-33.8 4.3-8.3 9-19.3 11.4-28.4 14.7-5 47.7-16.2 69.4-8.1.6.2 7.3-2.9 0-8.1-12.9-9.5-53.4-3.9-66.3.2 3.5-25.9-2.7-41.9-22-61.4 15-6.2 38.6-23.8 42.9-41.9 2.4-12.2 3-30.1-20.8-31.6zm-34.3 163.4c-1 6-10 23.8-22.2 38.6-9.7 11.8-37.9 31.9-53.4 27.8-17.2-4.6 16.2-44.6 71.3-65l4.3-1.4z"></path>
+  </svg>
+</a>
+</div>
+<div class="dtc v-mid w-80 tr truncate ttu tracked-mega-ns" data-gumshoe-header="" data-scroll-header="">
+<ul class="gumshoe" data-gumshoe="">
+	<li><a class="it  f0 f6-ns f5-l fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3 ph1-ns" data-scroll href="#about" lang="it">Chi siamo</a><a class="en fr f0 f6-ns f5-l fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3 ph1-ns" data-scroll href="#about" lang="en">About</a></li>
+	<li><a class="it  f0 f6-ns f5-l fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3 ph1-ns" data-scroll href="#prices" lang="it">Listino prezzi</a><a class="en fr f0 f6-ns f5-l fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3 ph1-ns" data-scroll href="#prices" lang="en">prices</a></li>
+	<li><a class="it  f0 f6-ns f5-l fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3 ph1-ns" data-scroll href="#services" lang="it">Servizi</a><a class="en fr f0 f6-ns f5-l fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3 ph1-ns" data-scroll href="#services" lang="en">Services</a></li>
+	<li class="pb3"><a class="it  f0 f6-ns f5-l fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3 ph1-ns" data-scroll href="#contact" lang="it">Contattaci</a><a class="en fr f0 f6-ns f5-l fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3 ph1-ns" data-scroll href="#contact" lang="en">Contact</a></li>
+</ul>
+</div>
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+<div class="dtc v-mid pa1 w-10"><select class="f5 fr fw4 black no-underline dib pv2 ph2 bl b--black-025 langSelect" id="lang" name="language" onchange="userLanguage();"><option value="it">Italiano</option><option value="en">English</option> </select></div>
+</nav>
+</header>
 
-<!--
-{{ partial "short-text" .Params.blurb }}
--->
+<div class="seal">
+<div class="avenir vh-100 vh-75-ns vh-75-m cover bg-center b-lazy" data-src="images/1200x675/IMG_9843.jpg" data-src-small="images/480x270/IMG_9843.jpg">
+<div class="vh-100 vh-75-ns vh-75-m dt w-100">
+<div class="dtc tc white ph3 ph4-l v-btm text-shadow measure-narrow mb3">
+<h1 class="en f2 f3-ns f1-l mb0 lh-title" lang="en">Organic&nbsp;treats from the&nbsp;heart of&nbsp;Italy</h1>
 
-{{ partial "about-top" . }}
+<h2 class="en f3 f4-ns mt3" lang="en">Marz&ograve;&nbsp;&ndash; a fresco of friends, family and chance&nbsp;encounters.</h2>
 
-{{ partial "price" . }}
+<h1 class="it f2 f3-ns f1-l lh-title" lang="it">Cibo del&nbsp;cuore</h1>
 
-{{ partial "subscribe" . }}
+<h2 class="it f3 f4-ns mt3" lang="it">Marz&ograve; &egrave; un affresco, una ballata di parenti, amici, incontri fortuiti e fortunati.</h2>
+</div>
+</div>
+</div>
+</div>
 
-{{ partial "about" . }}
-<!-- It works! -->
+<main class="bg-white">
+<article class="athelas pa4" id="about">
+<h1 class="en f3 f1-m f-headline-l tc" lang="en">About</h1>
 
-<!--
-{{ partial "2-up" .Params }}
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
--->
+<h2 class="en f4 f2-m f-headline tc" lang="en">Welcome</h2>
 
-{{ partial "news" . }}
-<!-- It works! -->
+<h1 class="it f3 f1-m f-headline-l tc" lang="it">Chi siamo</h1>
 
-<!-- simplify the nesting -->
-{{ partial "email" . }}
+<h2 class="it f4 f2-m f-headline tc" lang="it">Marz&ograve; siamo noi. Raffaele e Francesca.</h2>
 
-{{ end }}
+<blockquote class="ph0 f4 f1-ns measure-narrow center">
+<p class="en fw9 lh-copy lh-title-ns tc" lang="en">Marz&ograve; is Raffaele and Francesca</p>
+
+<p class="it fw9 lh-copy lh-title-ns tc" lang="it">O meglio, il volto di Marz&ograve; siamo noi. Ma Marz&ograve; &egrave; un affresco, una ballata di parenti, amici, incontri fortuiti e fortunati.</p>
+</blockquote>
+
+<p class="en f5 f4-ns lh-copy measure center b" lang="en">Marz&ograve; is a fresco of friends, family and chance&nbsp;encounters.</p>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">Marz&ograve; is Uncle Angelo who picks everything at the right time &mdash; because it&rsquo;s better to do today what others postpone until tomorrow. It&#39;s Enrico who holds the photographic memory of the family. Marz&ograve; is Nonna Mia, who raises our children with the commitment of a climb, nonchalantly in her stride. And Nonna Ita who serves herbal tea down in the cold olive grove.</p>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Marz&ograve; &egrave; zio Angelo che prende tutto per tempo perch&eacute; &egrave; meglio fare oggi anche quello che potresti rimandare a domani, &egrave; Enrico che, di nome e di fatto, &egrave; la memoria della famiglia. E&rsquo; nonna Mia, che alleva bambini con l&rsquo;impegno di una scalata e la nonchalance di una passeggiata. Marz&ograve; &egrave; nonna Ita che prepara la tisana calda per chi raccoglie al freddo, gi&ugrave; nel piantoneto.</p>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">Marz&ograve; is the ancient olive trees planted by Great-great-grandpa Dino, one hundred years ago. It&rsquo;s the tractor that has been a museum piece since the time of old Nonna Rina. It&#39;s Auntie Anna&rsquo;s hand-made tortellini each and every Christmas. And Nonno Peppe, who entertains you from his soapbox in his Italian bar, with a backdrop of authentic espresso.</p>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Marz&ograve; arriva da lontano, dagli ulivi che ha piantato nonno Dino cent&rsquo;anni fa, dal melancolo che per quanto &egrave; antico e bello lo osserva pure il CNR. Marz&ograve; &egrave; il trattore che gi&agrave; ai tempi di nonna Rina era un pezzo da museo. E&rsquo; zia Anna che fa i cappelletti per tutti ogni Natale. E&rsquo; nonno Peppe che sempre ti accoglie al bar con una delle storie del menestrello e il profumo di un buon caff&egrave;.</p>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">Marz&ograve; is Auntie Martina, who lights up the room with every visit and steals away a tear with every goodbye. It&rsquo;s uncle Scott, who spends the night designing labels for round bottles&hellip; but the only olive oil bottles we find are square!</p>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Marz&ograve; &egrave; zia Martina che quando arriva &egrave; una festa e quando parte una lacrima. Zio Scott che passa la notte a progettare l&rsquo;etichetta cilindrica per la bottiglia dell&rsquo;olio e poi compriamo quella squadrata. Marz&ograve; sono le nostre idee, a volte avventurose a volte avventate, ma sempre sentite. Ma il cuore pulsante, il soffio vitale, l&rsquo;anima di Marz&ograve; sono Martino ed Ettore che tutto colorano con risate argentine e occhi splendenti.</p>
+
+<p></p>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">Marz&ograve; is our idea of a family business. But throughout each hectic day, right at the centre of all we do, is our heartbeat: little Martino and Ettore &mdash; brimming with life and laughter.</p>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">We are Marz&ograve;.</p>
+
+<blockquote class="ph0 f4 f1-ns measure-narrow center">
+<p class="en fw9 lh-copy lh-title-ns tc" lang="en">There&#39;s a little bit of us in every&nbsp;bite</p>
+
+<p class="it fw9 lh-copy lh-title-ns tc" lang="it">Vieni a trovarci</p>
+</blockquote>
+</article>
+
+<section class="cf f5 f4-ns avenir w-100 pa3 ph4-m ph5-l bg-white" id="prices"><!--div class="dt-ns dt--fixed-ns mb3">
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="#canapa-biscotti">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/IMG_20170906-cropped.jpg" data-src-small="images/480x270/IMG_20170906-cropped.jpg"></div>
+</div>
+<section lang=en class="en tc">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Whole hemp biscuits, 200g</h3>
+<p class="f6 f5 fw4 mt2 black-60 measure">Perfect with coffee.</p>
+<h4 class="f3 f4-m tc mb4">€5.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Whole%20hemp%20biscuits,%20200g%20enquiry.&body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a>
+</section>
+<section lang=it class="it tc">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Canapa biscotti, 200&nbsp;gr</h3>
+<p class="f6 f5 fw4 mt2 black-60 measure">Perfetto con il caffè.</p>
+<h4 class="f3 f4-m tc mb4">5&nbsp;€&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a>
+</section>
+</article>
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="#canapa">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/product-0x-canapa.jpg" data-src-small="images/480x270/product-0x-canapa.jpg"></div>
+</div>
+<section lang=en class="en tc">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Whole hemp seeds, 50g</h3>
+<p class="f6 f5 fw4 mt2 black-60 measure">Sprinkle over breakfast cereal, soups or salads.</p>
+<h4 class="f3 f4-m tc mb4">€1.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Whole%20hemp%20seeds,%2050g%20enquiry.&body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a>
+</section>
+<section lang=it class="it tc">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Semi di canapa, 50&nbsp;gr</h3>
+<p class="f6 f5 fw4 mt2 black-60 measure">Croccanti con cereali e insalate. Un tocco originale per zuppe raffinate.</p>
+<h4 class="f3 f4-m tc mb4">1&nbsp;€&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a>
+</section>
+</article>
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="#canapa-monoica">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/product-00-canapa.jpg" data-src-small="images/480x270/product-00-canapa.jpg"></div>
+</div>
+<section lang=en class="en tc">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Hemp Tea. Monoica bushel 10g</h3>
+<p class="f6 f5 fw4 mt2 black-60 measure">Indulgent and relaxing.</p>
+<h4 class="f3 f4-m tc mb4">€8.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Hemp%20Tea.%20Monoica%20bushel%2010g%20enquiry.&body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a>
+</section>
+<section lang=it class="it tc">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Canapa, 10&nbsp;gr</h3>
+<p class="f6 f5 fw4 mt2 black-60 measure">Infiorescenze di canapa sativa, varietà' Futura75. Un momento di relax.</p>
+<h4 class="f3 f4-m tc mb4">8&nbsp;€&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a>
+</section>
+</article>
+</div-->
+<div class="dt-ns dt--fixed-ns mb3">
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="#ceci">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/product-00-ceci-500.jpg" data-src-small="images/480x270/product-00-ceci-500.jpg"></div>
+</div>
+
+<section class="en tc" lang="en">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Chickpeas, 500g</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Mixed into salads, stewed in curries or blended for home‑made hummus.</p>
+
+<h4 class="f3 f4-m tc mb4">&euro;4.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Chickpeas,%20500g%20enquiry.&amp;body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a></section>
+
+<section class="it tc" lang="it">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Ceci, 500&nbsp;gr</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Per scaldare l&#39;inverno con zuppe e vellutate.</p>
+
+<h4 class="f3 f4-m tc mb4">4&nbsp;&euro;&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a></section>
+</article>
+
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="#zafferano">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/product-00-zafferano-jar.jpg" data-src-small="images/480x270/product-00-zafferano-jar.jpg"></div>
+</div>
+
+<section class="en tc" lang="en">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Saffron, 0.1g</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Elevate and infuse your dishes with this deluxe&nbsp;spice.</p>
+
+<h4 class="f3 f4-m tc mb4">&euro;4.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Saffron,%200.1g%20enquiry.&amp;body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a></section>
+
+<section class="it tc" lang="it">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Zafferano purissimo in stimmi, 0,10&nbsp;gr</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Oro rosso, che passione.</p>
+
+<h4 class="f3 f4-m tc mb4">4&nbsp;&euro;&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a></section>
+</article>
+
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="#lenticchie">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/product-0x-lentils.jpg" data-src-small="images/480x270/product-0x-lentils.jpg"></div>
+</div>
+
+<section class="en tc" lang="en">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Golden Lentils, 500g</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Perfect for medleys, side-dishes and adding into vegetable lasagne.</p>
+
+<h4 class="f3 f4-m tc mb4">&euro;4.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Golden%20Lentils,%20500g%20enquiry.&amp;body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a></section>
+
+<section class="it tc" lang="it">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Lenticchie, 500&nbsp;gr</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Colorate e saporite. Perfette per la zuppa di nonna Rina!</p>
+
+<h4 class="f3 f4-m tc mb4">4&nbsp;&euro;&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a></section>
+</article>
+</div>
+
+<div class="dt-ns dt--fixed-ns mb3">
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="#canapa-monoica">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/product-00-canapa.jpg" data-src-small="images/480x270/product-00-canapa.jpg"></div>
+</div>
+
+<section class="en tc" lang="en">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Hemp Tea <i>(Cannabis Sativa)</i>, 10g</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Indulgent and relaxing.</p>
+
+<h4 class="f3 f4-m tc mb4">&euro;8.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Hemp%20Tea.%20Monoica%20bushel%2010g%20enquiry.&amp;body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a></section>
+
+<section class="it tc" lang="it">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Canapa, 10&nbsp;gr</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Infiorescenze di canapa sativa, variet&agrave;&#39; Futura75. Un momento di relax.</p>
+
+<h4 class="f3 f4-m tc mb4">8&nbsp;&euro;&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a></section>
+</article>
+<!--article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id=oil-1000>
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/product-00-olive-oil-1000.jpg" data-src-small="images/480x270/product-00-olive-oil-1000.jpg"></div>
+</div>
+	<section lang=en class="en tc">
+	<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Extra Virgin Olive Oil, 1L</h3>
+	<p class="f6 f5 fw4 mt2 black-60 measure">Rich, spicy and green.</p>
+	<h4 class="f3 f4-m tc mb4">€11.00&nbsp;+ P&amp;P</h4>
+	<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Extra%20Virgin%20Olive%20Oil,%201L%20enquiry.&body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a>
+	</section>
+	<section lang=it class="it tc">
+	<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Olio extravergine di oliva, 1L</h3>
+	<p class="f6 f5 fw4 mt2 black-60 measure">Verde brillante, sapore intenso e note piccanti. Una delizia per gli occhi e il palato.</p>
+	<h4 class="f3 f4-m tc mb4">11&nbsp;€&nbsp;+ Spese&nbsp;di spedizione</h4>
+	<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a>
+	</section>
+</article-->
+
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="oil-750">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/product-00-olive-oil-750.jpg" data-src-small="images/480x270/product-00-olive-oil-750.jpg"></div>
+</div>
+
+<section class="en tc" lang="en">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Extra Virgin Olive Oil, 0.75L</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Rich, spicy and green.</p>
+
+<h4 class="f3 f4-m tc mb4">&euro;14.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Extra%20Virgin%20Olive%20Oil,%200.75L%20enquiry.&amp;body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a></section>
+
+<section class="it tc" lang="it">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Olio extravergine di oliva, 0.75L</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Verde brillante, sapore intenso e note piccanti. Una delizia per gli occhi e il palato.</p>
+
+<h4 class="f3 f4-m tc mb4">14&nbsp;&euro;&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a></section>
+</article>
+
+<article class="dtc-ns tc pb5 pa2-ns pb4-ns hover-bg-black-05" id="oil-500">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/IMG_20171125.jpg" data-src-small="images/480x270/IMG_20171125.jpg"></div>
+</div>
+
+<section class="en tc" lang="en">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Extra Virgin Olive Oil, 0.5L</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Rich, spicy and green.</p>
+
+<h4 class="f3 f4-m tc mb4">&euro;10.00&nbsp;+ P&amp;P</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="mailto:info@marzo.li?subject=Extra%20Virgin%20Olive%20Oil,%200.5L%20enquiry.&amp;body=Please%20tell%20me%20how%20much%20it%20is%20to%20post%20to%20my%20address%3A%0D%0A%0D%0A%0D%0APostcode%3A%0D%0A%0D%0A%0D%0A%0D%0A%20Thank%20you%0D%0A%0D%0A%0D%0A%0D%0A">Enquire</a></section>
+
+<section class="it tc" lang="it">
+<h3 class="f5 f4-ns ph2 ph0-ns mb0 black-90">Olio extravergine di oliva, 0.5L</h3>
+
+<p class="f6 f5 fw4 mt2 black-60 measure">Verde brillante, sapore intenso e note piccanti. Una delizia per gli occhi e il palato.</p>
+
+<h4 class="f3 f4-m tc mb4">10&nbsp;&euro;&nbsp;+ Spese&nbsp;di spedizione</h4>
+<a class="f6 f5-ns b pv3 ph4 ph3-l ph1-ns no-underline ba bw2-ns b--black bg-black white pointer ttu tracked-mega" href="callto:+393408931544">Chiamaci</a></section>
+</article>
+</div>
+</section>
+
+<article class="athelas pa4" id="products">
+<h1 class="en f3 f1-m f-headline-l tc" lang="en">What we&nbsp;do</h1>
+
+<h1 class="it f3 f1-m f-headline-l tc" lang="it">Cosa facciamo</h1>
+
+<h2 class="en f4 f2-m f-headline tc" lang="en">Hemp <i>(Cannabis Sativa)</i></h2>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">Growing hemp means rediscovering ancient seeds &ndash; which are nurtured by, and bound to, a distinctive piece of land and soil. Hemp tells a different story of farming: a story of daily care, respect and resource preservation.</p>
+
+<h2 class="it f4 f2-m f-headline tc" lang="it">Canapa Sativa</h2>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Ritrovare i frutti del passato, legati a un luogo, peculiari, specifici. Questa pianta racconta un modo di concepire l&#39;agricoltura che non voleva e non poteva essere sfruttamento indiscriminato delle sue risorse. Racconta un rapporto col territorio fatto di cura e quotidiano rispetto, risparmio ed economicit&agrave;.</p>
+</article>
+<!--figure class="f5 f4-ns lh-copy measure center pt4">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/IMG_20170906-cu.jpg" data-src-small="images/480x270/IMG_20170906-cu.jpg"></div>
+</div>
+</figure-->
+
+<div class="seal">
+<div class="vh-100 vh-75-ns vh-75-m cover bg-center b-lazy" data-src="images/1200x675/IMG_20170906-cu.jpg" data-src-small="images/480x270/IMG_20170906-cu.jpg"></div>
+</div>
+
+<article class="athelas pa4">
+<h2 class="en f4 f2-m f-headline tc" lang="en">Saffron</h2>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">We grow Saffron with lots of love and hard work. After meticulously sorting the stigmas (the female part of the flower that produces the saffron spice), we dry them at low temperatures to lock in aroma and taste.</p>
+
+<h2 class="it f4 f2-m f-headline tc" lang="it">Zafferano</h2>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Zafferano purissimo in stimmi. Lo coltiviamo noi, con tanto amore e fatica. Dopo aver selezionato accuratamente gli stimmi (la parte femminile del fiore) da cui si ottiene la spezia, li essicchiamo a bassa temperatura per mantenere aroma e fragranza inalterate.</p>
+</article>
+<!--figure class="f5 f4-ns lh-copy measure center pt4">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/IMG_9902.jpg" data-src-small="images/480x270/IMG_9902.jpg"></div>
+</div>
+</figure-->
+
+<div class="seal">
+<div class="vh-100 vh-75-ns vh-75-m cover bg-center b-lazy" data-src="images/1200x675/IMG_9902.jpg" data-src-small="images/480x270/IMG_9902.jpg"></div>
+</div>
+
+<article class="athelas pa4">
+<h2 class="en f4 f2-m f-headline tc" lang="en">Extra virgin olive oil</h2>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">We work to preserve the ancient art of growing olive trees. We are mindful of protecting our environment and landscape. And we are committed to promoting and developing a culture of olive oil &ndash; inviting anyone who chooses liquid gold for their kitchen to become a discerning customer. As producers, we apply ethics that value the Italian craft of nurturing olive groves to extract exquisite oil &ndash; in the multitude of local varieties that enrich our <dfn><abbr title="Beautiful country, in Italian">Bel&nbsp;Paese</abbr></dfn>.</p>
+
+<h2 class="it f4 f2-m f-headline tc" lang="it">Olio Extravergine di Oliva</h2>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Vogliamo difendere un&rsquo;olivicoltura attenta alla tutela dell&rsquo;ambiente e del paesaggio Ci impegniamo attraverso la comunicazione a sviluppare e ricostruire la cultura dell&rsquo;olio. Invitiamo tutti coloro che utilizzano quotidianamente l&rsquo;olio a porre in essere abitudini di acquisto consapevoli. Come produttori rispettiamo un&#39;etica che valorizza il ruolo e il prodotto dell&rsquo;olivicoltura italiana con le sue molteplici identit&agrave; territoriali.</p>
+</article>
+<!--figure class="f5 f4-ns lh-copy measure center pt4">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/IMG_20171125.jpg" data-src-small="images/480x270/IMG_20171125.jpg"></div>
+</div>
+</figure-->
+
+<div class="seal">
+<div class="vh-100 vh-75-ns vh-75-m cover bg-center b-lazy" data-src="images/1200x675/IMG_20171125.jpg" data-src-small="images/480x270/IMG_20171125.jpg"></div>
+</div>
+
+<article class="athelas pa4" id="services">
+<h1 class="en f3 f1-m f-headline-l tc" lang="en">On our farm</h1>
+
+<h2 class="en f4 f2-m f-headline tc" lang="en">Services</h2>
+
+<p class="en f5 f4-ns lh-copy measure center mb4" lang="en">Need a hand for a special occasion? We supply hampers and tailor your order to your family and friends. <a data-scroll href="#contact">Email us</a>, or <a data-scroll href="#call">call us</a> now.</p>
+
+<h2 class="en f4 f2-m f-headline tc" lang="en">How to place your order</h2>
+
+<p class="en f5 f4-ns lh-copy measure center" lang="en">When you&#39;re ready to place your order we will confirm that you are based in Italy and deliver within 48 hours by courier. If you are outside of Italy, we&rsquo;re thrilled to help and know you value authentic produce &ndash;&nbsp;additional rates will apply.</p>
+
+	<p class="en f5 f4-ns lh-copy measure center" lang="en">To place your order: <a data-scroll href="#contact">Email us</a>, or <a data-scroll href="#call">call us</a> now.</p>
+
+<h1 class="it f3 f1-m f-headline-l tc" lang="it">Nella nostra fattoria</h1>
+
+<h2 class="it f4 f2-m f-headline tc" lang="it">Servizi</h2>
+
+<p class="it f5 f4-ns lh-copy measure center mb4" lang="it">Possiamo preparare per te tanti assaggini e raggiungerti ovunque tu sia. Se invece hai gi&agrave; scelto il prodotto che pi&ugrave; ti piace e vuoi farne scorta non hai che da chiedere. E poi confezioni regalo, bomboniere, e qualsiasi cosa ti venga in mente per appagare l&#39;occhio e il palato. <a data-scroll href="#contact">Mandaci una email</a> o <a data-scroll href="#call">chiamaci</a> ora.</p>
+
+
+<h2 class="it f4 f2-m f-headline tc" lang="it">Vendita</h2>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Per acquistare i nostri prodotti ti basta telefonare al 340891544 oppure inviare una <a data-scroll href="#contact">e-mail</a> a info@marzo.li. Se risiedi in Italia ti raggiungeremo con il nostro super corriere in poco pi&ugrave; di 24 ore. Se abiti all&#39;estero e non vuoi rinunciare alla gastronomia made in Italy, devi avere un p&ograve; di pazienza. Il pacco arriver&agrave; ma avr&agrave; bisogno qualche giorno in pi&ugrave;.</p>
+<!--figure class="f5 f4-ns lh-copy measure center pt4">
+<div class="seal aspect-ratio aspect-ratio--16x9 mb4">
+<div class="aspect-ratio--object cover bg-center b-lazy" data-src="images/1200x675/IMG_20170906-cropped.jpg" data-src-small="images/480x270/IMG_20170906-cropped.jpg"></div>
+</div>
+</figure--></article>
+
+<div class="seal">
+<div class="vh-100 vh-75-ns vh-75-m cover bg-center b-lazy" data-src="images/1200x675/IMG_20170906-cropped.jpg" data-src-small="images/480x270/IMG_20170906-cropped.jpg"></div>
+</div>
+
+<article class="athelas pa4" id="news">
+<h1 class="it f3 f1-m f-headline-l tc" lang="it">Fresco di stagione</h1>
+
+<h2 lang=it class="it f4 f2-m f-headline tc">Produzione 2018</h2>
+<p lang=it class="it f5 f4-ns lh-copy measure center">
+Dice il saggio. Chi semina raccoglie... speriamo! Per quest'anno abbiamo preparato il terreno ad un nuovo giro di canapa sativa di cui ormai siamo perdutamente innamorati. E poi ceci e lenticchie che abbiamo seminato per la prima volta, con amore e speranza. Tornerà anche lo zafferano che sta svernando al calduccio fra le zolle e ci fa penare perchè è troppo amichevole con erbacce e infestanti. Per l'olio ci aggiorneremo. La gelata di fine febbraio ha inferto un duro colpo agli olivi che al momento sono ancora spogli e un pò tristi. Stiamo tifando per loro.
+</p>
+
+
+<h2 class="it f4 f2-m f-headline tc" lang="it">In alto il cucchiaio</h2>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Finalmente &egrave; arrivato il momento di raccogliere i frutti. La trebbia ha mietuto e nonostante qualche piccolo intoppo a causa dell&rsquo;erba rigogliosa e verde come in primavera, a fine giornata un fiume di lenticchie si &egrave; riversato nel cassone del trattore. Grazie a Luigino che con pazienza e tenacia ha ripulito pi&ugrave; e pi&ugrave; volte il battitore, possiamo iniziare a leccarci i baffi. La zuppa arriver&agrave;.</p>
+
+<h2 class="it f4 f2-m f-headline tc" lang="it">Oro rosso. Che passione</h2>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">20 grammi. Pesa cos&igrave; il raccolto di questa prima annata. Una stagione vissuta in trepida attesa, nel timore che qualcosa andasse storto e con la grande speranza di veder spuntare i primi fiori. Cos&igrave; &egrave; stato. Ogni mattina dal 10 ottobre a circa met&agrave; novembre siamo scesi in campo, come bambini che corrono a vedere quanti regali ha lasciato Babbo Natale sotto l&rsquo;albero. E Madre Natura non ci ha deluso. Ha ripagato il nostro impegno con pistilli carnosi, profumati, buonissimi. Li abbiamo provati in tutte le salse. Risotti, paste asciutte, salse e sughi saporiti, di un giallo delicato (la curcuma ci piace, ma da sola!) e con un aroma intenso. Per provarli non avete che da scegliere. Confezione da 0,10 gr (ci esce un buonissimo risotto per quattro persone circa) oppure se avete ospiti &egrave; disponibile la taglia 0,20gr. Affrettatevi perch&egrave; ci siamo talmente sbizzarriti in cucina che lo abbiamo finito quasi tutto.</p>
+
+<h2 class="it f4 f2-m f-headline tc" lang="it">Canapa in campo. Largo alla Uso31</h2>
+
+<p class="it f5 f4-ns lh-copy measure center" lang="it">Siamo ancora in trepida attesa. Le piogge degli ultimi mesi hanno inzuppato il terreno che ancora non &egrave; pronto ad accogliere i semi. Ma &egrave; questione di poco. Ancora qualche giornata di sole e potremo procedere. 25 chili di Uso 31 destinata alla produzione di seme e infiorescenze per te e tisane. Abbiamo gi&agrave; segnato anche il destino della fibra che conferiremo al centro di trasformazione pi&ugrave; vicino perch&egrave; sia lavorata e diventi filato, materiale edile e quant&rsquo;altro possibile ricavare da questa pianta dalle mille e una risorsa.</p>
+</article>
+
+<article class="athelas pa4" id="contact">
+<h1 class="en f3 f1-m f-headline-l tc" lang="en">Contact</h1>
+
+<h1 class="it f3 f1-m f-headline-l tc" lang="it">Contattaci</h1>
+
+<h2 class="f4 f2-m f-headline tc" id="email"><span class="it" lang="it">Mandaci una&nbsp;email&nbsp;</span> <span class="en" lang="en">Email&nbsp;us&nbsp;</span> <span>info@</span>&shy;<span>marzo.li</span></h2>
+
+<section class="f6 f4-ns measure center mb5">
+<form accept-charset="utf-8" action="https://formspree.io/francesca.tomassini@gmail.com" class="f5 f4-ns avenir" method="POST"><input name="_subject" type="hidden" value="Contattaci" /> <input class="it" id="validateItaliano" lang="it" name="_language" type="hidden" value="it" />
+<fieldset class="ba b--transparent ph0 mh0"><legend class="en f6 f5-ns ph0 mh0 fw6 clip ttu tracked-mega" lang="en">Email us</legend> <legend class="it f6 f5-ns ph0 mh0 fw6 clip ttu tracked-mega" lang="it">Mandaci una email</legend>
+
+<div class="mt3"><label class="en f6 f5-ns black-70 db fw4 lh-copy ttu tracked-mega" for="email-address" lang="en">Your email</label> <label class="it f6 f5-ns black-70 db fw4 lh-copy ttu tracked-mega" for="email-address" lang="it">La tua email</label> <input class="pa2 input-reset bg-black-05 w-100 measure" id="Il_loro_indirizzo" name="_replyto" onblur="showHeader();" onfocus="headerHidden();" type="email" /></div>
+
+<div class="mt3"><label class="en f6 f5-ns black-70 db fw4 lh-copy ttu tracked-mega" for="email-address" lang="en">Message</label> <label class="it f6 f5-ns black-70 db fw4 lh-copy ttu tracked-mega" for="email-address" lang="it">Il tuo messaggio</label><textarea class="pa2 input-reset bg-black-05 w-100 measure" id="message" name="Messaggio" onblur="showHeader();" onfocus="headerHidden();" rows="4"></textarea></div>
+</fieldset>
+
+<div class="mt3 fr cb cf"><input class="en f6 f5-ns b ph4 pv3 input-reset ba bw2-ns b--black bg-transparent grow pointer ttu tracked-mega" lang="en" type="submit" value="Send" /> <input class="it f6 f5-ns b ph4 pv3 input-reset ba bw2-ns b--black bg-transparent grow pointer ttu tracked-mega" lang="it" type="submit" value="Inviare" /> <input name="_next" type="hidden" value="https:///marzo.li/done/" /></div>
+</form>
+</section>
+</article>
+</main>
+
+<footer class="athelas mb0 bg-near-white" id="call">
+<section class="pa4 f6 f4-ns lh-copy measure center">
+<h2 class="en f4 f2-m f-headline tc mb4" lang="en">Call us</h2>
+
+<h2 class="it f4 f2-m f-headline tc mb4" lang="it">Telefonaci</h2>
+
+<p class="w-100 tc mt3"><a class="f6 avenir f5-ns b ph3 ph4-ns pv3 no-underline ba bw2-ns b--black bg-black white grow pointer ttu tracked-mega" href="callto:+393408931544">(+39) 340-893-1544</a></p>
+</section>
+
+<article class="pa4">
+<p class="mt3 mb0 black-70 center tc"><span class="f6 black-50">&copy;</span>Marz&ograve; 2018 di Raffaele Pagliari |&nbsp;Web&nbsp;<a href="https://inspiredlabs.co.uk">Scott&nbsp;Phillips</a></p>
+
+<p class="mt3 mb0 black-70 center tc">P.IVA 01571640554</p>
+</article>
+</footer>
+
+<script>!(function(e,t){"function"==typeof define&&define.amd?define([],t(e)):"object"==typeof exports?module.exports=t(e):e.gumshoe=t(e)})("undefined"!=typeof global?global:this.window||this.global,(function(e){"use strict";var t,n,o,r,a,c,i,l={},s=[],u={selector:"[data-gumshoe] a",selectorHeader:"[data-gumshoe-header]",container:e,offset:0,activeClass:"active",scrollDelay:!1,callback:function(){}},f=function(){return"querySelector"in document&&"addEventListener"in e&&"classList"in document.createElement("_")},d=function(e,t,n){if("[object Object]"===Object.prototype.toString.call(e))for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.call(n,e[o],o,e);else for(var r=0,a=e.length;r<a;r++)t.call(n,e[r],r,e)},v=function(){var e={},t=!1,n=0,o=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(t=arguments[0],n++);for(;n<o;n++){var r=arguments[n];!(function(n){for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(t&&"[object Object]"===Object.prototype.toString.call(n[o])?e[o]=v(!0,e[o],n[o]):e[o]=n[o])})(r)}return e},m=function(e){return Math.max(e.scrollHeight,e.offsetHeight,e.clientHeight)},g=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},h=function(e){var n=0;if(e.offsetParent)do{n+=e.offsetTop,e=e.offsetParent}while(e);else n=e.offsetTop;return n=n-a-t.offset,n>=0?n:0},p=function(t){var n=t.getBoundingClientRect();return n.top>=0&&n.left>=0&&n.bottom<=(e.innerHeight||document.documentElement.clientHeight)&&n.right<=(e.innerWidth||document.documentElement.clientWidth)},y=function(){s.sort((function(e,t){return e.distance>t.distance?-1:e.distance<t.distance?1:0}))};l.setDistances=function(){o=g(),a=r?m(r)+h(r):0,d(s,(function(e){e.distance=h(e.target)})),y()};var b=function(){var e=document.querySelectorAll(t.selector);d(e,(function(e){if(e.hash){var t=document.querySelector(e.hash);t&&s.push({nav:e,target:t,parent:"li"===e.parentNode.tagName.toLowerCase()?e.parentNode:null,distance:0})}}))},H=function(){c&&(c.nav.classList.remove(t.activeClass),c.parent&&c.parent.classList.remove(t.activeClass))},C=function(e){H(),e.nav.classList.add(t.activeClass),e.parent&&e.parent.classList.add(t.activeClass),t.callback(e),c={nav:e.nav,parent:e.parent}};l.getCurrentNav=function(){var n=e.pageYOffset;if(e.innerHeight+n>=o&&p(s[0].target))return C(s[0]),s[0];for(var r=0,a=s.length;r<a;r++){var c=s[r];if(c.distance<=n)return C(c),c}H(),t.callback()};var L=function(){d(s,(function(e){e.nav.classList.contains(t.activeClass)&&(c={nav:e.nav,parent:e.parent})}))};l.destroy=function(){t&&(t.container.removeEventListener("resize",j,!1),t.container.removeEventListener("scroll",j,!1),s=[],t=null,n=null,o=null,r=null,a=null,c=null,i=null)};var E=function(e){window.clearTimeout(n),n=setTimeout((function(){l.setDistances(),l.getCurrentNav()}),66)},j=function(e){n||(n=setTimeout((function(){n=null,"scroll"===e.type&&l.getCurrentNav(),"resize"===e.type&&(l.setDistances(),l.getCurrentNav())}),66))};return l.init=function(e){f()&&(l.destroy(),t=v(u,e||{}),r=document.querySelector(t.selectorHeader),b(),0!==s.length&&(L(),l.setDistances(),l.getCurrentNav(),t.container.addEventListener("resize",j,!1),t.scrollDelay?t.container.addEventListener("scroll",E,!1):t.container.addEventListener("scroll",j,!1)))},l}));!function(e,t){"function"==typeof define&&define.amd?define([],t(e)):"object"==typeof exports?module.exports=t(e):e.smoothScroll=t(e)}("undefined"!=typeof global?global:this.window||this.global,function(e){"use strict";var t,n,r,o,a={},u="querySelector"in document&&"addEventListener"in e,c={selector:"[data-scroll]",selectorHeader:"[data-scroll-header]",speed:500,easing:"easeInOutCubic",offset:0,updateURL:!0,callback:function(){}},i=function(){var e={},t=!1,n=0,r=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(t=arguments[0],n++);for(var o=function(n){for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(t&&"[object Object]"===Object.prototype.toString.call(n[r])?e[r]=i(!0,e[r],n[r]):e[r]=n[r])};r>n;n++){var a=arguments[n];o(a)}return e},s=function(e){return Math.max(e.scrollHeight,e.offsetHeight,e.clientHeight)},l=function(e,t){var n,r,o=t.charAt(0),a="classList"in document.documentElement;for("["===o&&(t=t.substr(1,t.length-2),n=t.split("="),n.length>1&&(r=!0,n[1]=n[1].replace(/"/g,"").replace(/'/g,"")));e&&e!==document;e=e.parentNode){if("."===o)if(a){if(e.classList.contains(t.substr(1)))return e}else if(new RegExp("(^|\\s)"+t.substr(1)+"(\\s|$)").test(e.className))return e;if("#"===o&&e.id===t.substr(1))return e;if("["===o&&e.hasAttribute(n[0])){if(!r)return e;if(e.getAttribute(n[0])===n[1])return e}if(e.tagName.toLowerCase()===t)return e}return null},f=function(e){for(var t,n=String(e),r=n.length,o=-1,a="",u=n.charCodeAt(0);++o<r;){if(t=n.charCodeAt(o),0===t)throw new InvalidCharacterError("Invalid character: the input contains U+0000.");a+=t>=1&&31>=t||127==t||0===o&&t>=48&&57>=t||1===o&&t>=48&&57>=t&&45===u?"\\"+t.toString(16)+" ":t>=128||45===t||95===t||t>=48&&57>=t||t>=65&&90>=t||t>=97&&122>=t?n.charAt(o):"\\"+n.charAt(o)}return a},d=function(e,t){var n;return"easeInQuad"===e&&(n=t*t),"easeOutQuad"===e&&(n=t*(2-t)),"easeInOutQuad"===e&&(n=.5>t?2*t*t:-1+(4-2*t)*t),"easeInCubic"===e&&(n=t*t*t),"easeOutCubic"===e&&(n=--t*t*t+1),"easeInOutCubic"===e&&(n=.5>t?4*t*t*t:(t-1)*(2*t-2)*(2*t-2)+1),"easeInQuart"===e&&(n=t*t*t*t),"easeOutQuart"===e&&(n=1- --t*t*t*t),"easeInOutQuart"===e&&(n=.5>t?8*t*t*t*t:1-8*--t*t*t*t),"easeInQuint"===e&&(n=t*t*t*t*t),"easeOutQuint"===e&&(n=1+--t*t*t*t*t),"easeInOutQuint"===e&&(n=.5>t?16*t*t*t*t*t:1+16*--t*t*t*t*t),n||t},m=function(e,t,n){var r=0;if(e.offsetParent)do r+=e.offsetTop,e=e.offsetParent;while(e);return r=r-t-n,r>=0?r:0},h=function(){return Math.max(e.document.body.scrollHeight,e.document.documentElement.scrollHeight,e.document.body.offsetHeight,e.document.documentElement.offsetHeight,e.document.body.clientHeight,e.document.documentElement.clientHeight)},p=function(e){return e&&"object"==typeof JSON&&"function"==typeof JSON.parse?JSON.parse(e):{}},g=function(t,n){e.history.pushState&&(n||"true"===n)&&e.history.pushState(null,null,[e.location.protocol,"//",e.location.host,e.location.pathname,e.location.search,t].join(""))},b=function(e){return null===e?0:s(e)+e.offsetTop};a.animateScroll=function(t,n,a){var u=p(t?t.getAttribute("data-options"):null),s=i(s||c,a||{},u);n="#"+f(n.substr(1));var l="#"===n?e.document.documentElement:e.document.querySelector(n),v=e.pageYOffset;r||(r=e.document.querySelector(s.selectorHeader)),o||(o=b(r));var y,O,S,I=m(l,o,parseInt(s.offset,10)),H=I-v,E=h(),L=0;g(n,s.updateURL);var j=function(r,o,a){var u=e.pageYOffset;(r==o||u==o||e.innerHeight+u>=E)&&(clearInterval(a),l.focus(),s.callback(t,n))},w=function(){L+=16,O=L/parseInt(s.speed,10),O=O>1?1:O,S=v+H*d(s.easing,O),e.scrollTo(0,Math.floor(S)),j(S,I,y)},C=function(){y=setInterval(w,16)};0===e.pageYOffset&&e.scrollTo(0,0),C()};var v=function(e){var n=l(e.target,t.selector);n&&"a"===n.tagName.toLowerCase()&&(e.preventDefault(),a.animateScroll(n,n.hash,t))},y=function(e){n||(n=setTimeout(function(){n=null,o=b(r)},66))};return a.destroy=function(){t&&(e.document.removeEventListener("click",v,!1),e.removeEventListener("resize",y,!1),t=null,n=null,r=null,o=null)},a.init=function(n){u&&(a.destroy(),t=i(c,n||{}),r=e.document.querySelector(t.selectorHeader),o=b(r),e.document.addEventListener("click",v,!1),r&&e.addEventListener("resize",y,!1))},a});</script><script>function reInitScroll(){smoothScroll.init({offset:20});gumshoe.init({offset:21});};</script><script>document.addEventListener('scroll',function(){var h=document.documentElement,b=document.body,st='scrollTop',sh='scrollHeight';var percent=(h[st]||b[st])/((h[sh]||b[sh])-h.clientHeight)*33;if(parseFloat(percent)<=parseFloat(0.8)){document.getElementById('header').style.backgroundColor="rgba(0, 0, 0, "+parseFloat(percent)+")"}
+else{document.getElementById('header').style.backgroundColor="rgba(0, 0, 0, 0.8)"};});</script><script>function headerHidden(){document.getElementById("header").classList.add("headerHidden");document.getElementById("header").classList.remove("showHeader");setTimeout(function(){document.getElementById("header").style.visibility="hidden"},1000);};function showHeader(){document.getElementById("header").style.visibility="visible";document.getElementById("header").classList.remove("headerHidden");document.getElementById("header").classList.add("showHeader");};document.body.addEventListener('keypress',function(e){if(e.key=="Escape"){showHeader();}});</script><script>function validateItaliano(){var el=document.getElementById("validateItaliano");el.remove();}
+var italiano=function(){document.getElementById('lang').value='it';var arrayHidden=document.getElementsByClassName("en");for(var i=0;i<arrayHidden.length;i++){arrayHidden[i].style.display="none";}
+var showArray=document.getElementsByClassName("it");for(var i=0;i<showArray.length;i++){showArray[i].style.display="block";}
+reInitScroll();};var english=function(){document.getElementById('lang').value='en';var arrayHidden=document.getElementsByClassName("it");for(var i=0;i<arrayHidden.length;i++){arrayHidden[i].style.display="none";}
+var showArray=document.getElementsByClassName("en");for(var i=0;i<showArray.length;i++){showArray[i].style.display="block";}
+reInitScroll();validateItaliano();};function userLanguage(){if(document.getElementById('lang').value==='it'){italiano();}else{english();}};document.addEventListener("DOMContentLoaded",function(event){var navUserLanguage=navigator.language.toLowerCase()||navigator.userLanguage.toLowerCase();var string=navUserLanguage,substring="it";if(string.indexOf(substring)!==-1){italiano();}else{english();};reInitScroll();});</script>
+
+<script>(function(q,m){"function"===typeof define&&define.amd?define(m):"object"===typeof exports?module.exports=m():q.Blazy=m()})(this,function(){function q(b){var c=b._util;c.elements=E(b.options);c.count=c.elements.length;c.destroyed&&(c.destroyed=!1,b.options.container&&l(b.options.container,function(a){n(a,"scroll",c.validateT)}),n(window,"resize",c.saveViewportOffsetT),n(window,"resize",c.validateT),n(window,"scroll",c.validateT));m(b)}function m(b){for(var c=b._util,a=0;a<c.count;a++){var d=c.elements[a],e;a:{var g=d;e=b.options;var p=g.getBoundingClientRect();if(e.container&&y&&(g=g.closest(e.containerClass))){g=g.getBoundingClientRect();e=r(g,f)?r(p,{top:g.top-e.offset,right:g.right+e.offset,bottom:g.bottom+e.offset,left:g.left-e.offset}):!1;break a}e=r(p,f)}if(e||t(d,b.options.successClass))b.load(d),c.elements.splice(a,1),c.count--,a--}0===c.count&&b.destroy()}function r(b,c){return b.right>=c.left&&b.bottom>=c.top&&b.left<=c.right&&b.top<=c.bottom}function z(b,c,a){if(!t(b,a.successClass)&&(c||a.loadInvisible||0<b.offsetWidth&&0<b.offsetHeight))if(c=b.getAttribute(u)||b.getAttribute(a.src)){c=c.split(a.separator);var d=c[A&&1<c.length?1:0],e=b.getAttribute(a.srcset),g="img"===b.nodeName.toLowerCase(),p=(c=b.parentNode)&&"picture"===c.nodeName.toLowerCase();if(g||void 0===b.src){var h=new Image,w=function(){a.error&&a.error(b,"invalid");v(b,a.errorClass);k(h,"error",w);k(h,"load",f)},f=function(){g?p||B(b,d,e):b.style.backgroundImage='url("'+d+'")';x(b,a);k(h,"load",f);k(h,"error",w)};p&&(h=b,l(c.getElementsByTagName("source"),function(b){var c=a.srcset,e=b.getAttribute(c);e&&(b.setAttribute("srcset",e),b.removeAttribute(c))}));n(h,"error",w);n(h,"load",f);B(h,d,e)}else b.src=d,x(b,a)}else"video"===b.nodeName.toLowerCase()?(l(b.getElementsByTagName("source"),function(b){var c=a.src,e=b.getAttribute(c);e&&(b.setAttribute("src",e),b.removeAttribute(c))}),b.load(),x(b,a)):(a.error&&a.error(b,"missing"),v(b,a.errorClass))}function x(b,c){v(b,c.successClass);c.success&&c.success(b);b.removeAttribute(c.src);b.removeAttribute(c.srcset);l(c.breakpoints,function(a){b.removeAttribute(a.src)})}function B(b,c,a){a&&b.setAttribute("srcset",a);b.src=c}function t(b,c){return-1!==(" "+b.className+" ").indexOf(" "+c+" ")}function v(b,c){t(b,c)||(b.className+=" "+c)}function E(b){var c=[];b=b.root.querySelectorAll(b.selector);for(var a=b.length;a--;c.unshift(b[a]));return c}function C(b){f.bottom=(window.innerHeight||document.documentElement.clientHeight)+b;f.right=(window.innerWidth||document.documentElement.clientWidth)+b}function n(b,c,a){b.attachEvent?b.attachEvent&&b.attachEvent("on"+c,a):b.addEventListener(c,a,{capture:!1,passive:!0})}function k(b,c,a){b.detachEvent?b.detachEvent&&b.detachEvent("on"+c,a):b.removeEventListener(c,a,{capture:!1,passive:!0})}function l(b,c){if(b&&c)for(var a=b.length,d=0;d<a&&!1!==c(b[d],d);d++);}function D(b,c,a){var d=0;return function(){var e=+new Date;e-d<c||(d=e,b.apply(a,arguments))}}var u,f,A,y;return function(b){if(!document.querySelectorAll){var c=document.createStyleSheet();document.querySelectorAll=function(a,b,d,h,f){f=document.all;b=[];a=a.replace(/\[for\b/gi,"[htmlFor").split(",");for(d=a.length;d--;){c.addRule(a[d],"k:v");for(h=f.length;h--;)f[h].currentStyle.k&&b.push(f[h]);c.removeRule(0)}return b}}var a=this,d=a._util={};d.elements=[];d.destroyed=!0;a.options=b||{};a.options.error=a.options.error||!1;a.options.offset=a.options.offset||100;a.options.root=a.options.root||document;a.options.success=a.options.success||!1;a.options.selector=a.options.selector||".b-lazy";a.options.separator=a.options.separator||"|";a.options.containerClass=a.options.container;a.options.container=a.options.containerClass?document.querySelectorAll(a.options.containerClass):!1;a.options.errorClass=a.options.errorClass||"b-error";a.options.breakpoints=a.options.breakpoints||!1;a.options.loadInvisible=a.options.loadInvisible||!1;a.options.successClass=a.options.successClass||"b-loaded";a.options.validateDelay=a.options.validateDelay||25;a.options.saveViewportOffsetDelay=a.options.saveViewportOffsetDelay||50;a.options.srcset=a.options.srcset||"data-srcset";a.options.src=u=a.options.src||"data-src";y=Element.prototype.closest;A=1<window.devicePixelRatio;f={};f.top=0-a.options.offset;f.left=0-a.options.offset;a.revalidate=function(){q(a)};a.load=function(a,b){var c=this.options;void 0===a.length?z(a,b,c):l(a,function(a){z(a,b,c)})};a.destroy=function(){var a=this._util;this.options.container&&l(this.options.container,function(b){k(b,"scroll",a.validateT)});k(window,"scroll",a.validateT);k(window,"resize",a.validateT);k(window,"resize",a.saveViewportOffsetT);a.count=0;a.elements.length=0;a.destroyed=!0};d.validateT=D(function(){m(a)},a.options.validateDelay,a);d.saveViewportOffsetT=D(function(){C(a.options.offset)},a.options.saveViewportOffsetDelay,a);C(a.options.offset);l(a.options.breakpoints,function(a){if(a.width>=window.screen.width)return u=a.src,!1});setTimeout(function(){q(a)})}});var bLazy=new Blazy({validateDelay:320,breakpoints:[{width:420,src:'data-src-small'}],success:function(element){setTimeout(function(){var parent=element.parentNode;parent.className=parent.className.replace(/\bloading\b/,'');},200);}});</script><script>(function(){function m(a,b){return[].slice.call((b||document).querySelectorAll(a))}if(window.addEventListener){var e=window.StyleFix={link:function(a){var b=a.href||a.getAttribute("data-href");try{if(!b||"stylesheet"!==a.rel||a.hasAttribute("data-noprefix"))return}catch(p){return}var d=b.replace(/[^\/]+$/,""),f=(/^[a-z]{3,10}:/.exec(d)||[""])[0],h=(/^[a-z]{3,10}:\/\/[^\/]+/.exec(d)||[""])[0],k=/^([^?]*)\??/.exec(b)[1],g=a.parentNode,c=new XMLHttpRequest,l;c.onreadystatechange=function(){4===c.readyState&&l()};l=function(){var b=c.responseText;if(b&&a.parentNode&&(!c.status||400>c.status||600<c.status)){if((b=e.fix(b,!0,a))&&d)var b=b.replace(/url\(\s*?((?:"|')?)(.+?)\1\s*?\)/gi,function(b,a,c){return/^([a-z]{3,10}:|#)/i.test(c)?b:/^\/\//.test(c)?'url("'+f+c+'")':/^\//.test(c)?'url("'+h+c+'")':/^\?/.test(c)?'url("'+k+c+'")':'url("'+d+c+'")'}),n=d.replace(/([\\\^\$*+[\]?{}.=!:(|)])/g,"\\$1"),b=b.replace(RegExp("\\b(behavior:\\s*?url\\('?\"?)"+n,"gi"),"$1");n=document.createElement("style");n.textContent="/*# sourceURL="+a.getAttribute("href")+" */\n/*@ sourceURL="+a.getAttribute("href")+" */\n"+b;n.media=a.media;n.disabled=a.disabled;n.setAttribute("data-href",a.getAttribute("href"));a.id&&(n.id=a.id);g.insertBefore(n,a);g.removeChild(a);n.media=a.media}};try{c.open("GET",b),c.send(null)}catch(p){"undefined"!=typeof XDomainRequest&&(c=new XDomainRequest,c.onerror=c.onprogress=function(){},c.onload=l,c.open("GET",b),c.send(null))}a.setAttribute("data-inprogress","")},styleElement:function(a){if(!a.hasAttribute("data-noprefix")){var b=a.disabled;a.textContent=e.fix(a.textContent,!0,a);a.disabled=b}},styleAttribute:function(a){var b=a.getAttribute("style"),b=e.fix(b,!1,a);a.setAttribute("style",b)},process:function(){m('link[rel="stylesheet"]:not([data-inprogress])').forEach(StyleFix.link);m("style").forEach(StyleFix.styleElement);m("[style]").forEach(StyleFix.styleAttribute)},register:function(a,b){(e.fixers=e.fixers||[]).splice(void 0===b?e.fixers.length:b,0,a)},fix:function(a,b,d){if(e.fixers)for(var f=0;f<e.fixers.length;f++)a=e.fixers[f](a,b,d)||a;return a},camelCase:function(a){return a.replace(/-([a-z])/g,function(b,a){return a.toUpperCase()}).replace("-","")},deCamelCase:function(a){return a.replace(/[A-Z]/g,function(b){return"-"+b.toLowerCase()})}};(function(){setTimeout(function(){m('link[rel="stylesheet"]').forEach(StyleFix.link)},10);document.addEventListener("DOMContentLoaded",StyleFix.process,!1)})()}})();(function(m){function e(b,d,f,h,k){b=a[b];b.length&&(b=RegExp(d+"("+b.join("|")+")"+f,"gi"),k=k.replace(b,h));return k}if(window.StyleFix&&window.getComputedStyle){var a=window.PrefixFree={prefixCSS:function(b,d,f){var h=a.prefix;-1<a.functions.indexOf("linear-gradient")&&(b=b.replace(/(\s|:|,)(repeating-)?linear-gradient\(\s*(-?\d*\.?\d*)deg/ig,function(b,a,d,f){return a+(d||"")+"linear-gradient("+(90-f)+"deg"}));b=e("functions","(\\s|:|,)","\\s*\\(","$1"+h+"$2(",b);b=e("keywords","(\\s|:)","(\\s|;|\\}|$)","$1"+h+"$2$3",b);b=e("properties","(^|\\{|\\s|;)","\\s*:","$1"+h+"$2:",b);if(a.properties.length){var k=RegExp("\\b("+a.properties.join("|")+")(?!:)","gi");b=e("valueProperties","\\b",":(.+?);",function(a){return a.replace(k,h+"$1")},b)}d&&(b=e("selectors","","\\b",a.prefixSelector,b),b=e("atrules","@","\\b","@"+h+"$1",b));b=b.replace(RegExp("-"+h,"g"),"-");return b=b.replace(/-\*-(?=[a-z]+)/gi,a.prefix)},property:function(b){return(0<=a.properties.indexOf(b)?a.prefix:"")+b},value:function(b,d){b=e("functions","(^|\\s|,)","\\s*\\(","$1"+a.prefix+"$2(",b);b=e("keywords","(^|\\s)","(\\s|$)","$1"+a.prefix+"$2$3",b);0<=a.valueProperties.indexOf(d)&&(b=e("properties","(^|\\s|,)","($|\\s|,)","$1"+a.prefix+"$2$3",b));return b},prefixSelector:function(b){return a.selectorMap[b]||b},prefixProperty:function(b,d){var f=a.prefix+b;return d?StyleFix.camelCase(f):f}};(function(){var b={},d=[],f=getComputedStyle(document.documentElement,null),h=document.createElement("div").style,k=function(a){if("-"===a.charAt(0)){d.push(a);a=a.split("-");var c=a[1];for(b[c]=++b[c]||1;3<a.length;)a.pop(),c=a.join("-"),StyleFix.camelCase(c)in h&&-1===d.indexOf(c)&&d.push(c)}};if(f&&0<f.length)for(var g=0;g<f.length;g++)k(f[g]);else for(var c in f)k(StyleFix.deCamelCase(c));var g=0,e,p;for(p in b)f=b[p],g<f&&(e=p,g=f);a.prefix="-"+e+"-";a.Prefix=StyleFix.camelCase(a.prefix);a.properties=[];for(g=0;g<d.length;g++)c=d[g],0===c.indexOf(a.prefix)&&(e=c.slice(a.prefix.length),StyleFix.camelCase(e)in h||a.properties.push(e));!("Ms"!=a.Prefix||"transform"in h||"MsTransform"in h)&&"msTransform"in h&&a.properties.push("transform","transform-origin");a.properties.sort()})();(function(){function b(a,b){e[b]="";e[b]=a;return!!e[b]}var d={"linear-gradient":{property:"backgroundImage",params:"red, teal"},calc:{property:"width",params:"1px + 5%"},element:{property:"backgroundImage",params:"#foo"},"cross-fade":{property:"backgroundImage",params:"url(a.png), url(b.png), 50%"},"image-set":{property:"backgroundImage",params:"url(a.png) 1x, url(b.png) 2x"}};d["repeating-linear-gradient"]=d["repeating-radial-gradient"]=d["radial-gradient"]=d["linear-gradient"];var f={initial:"color",grab:"cursor",grabbing:"cursor","zoom-in":"cursor","zoom-out":"cursor",box:"display",flexbox:"display","inline-flexbox":"display",flex:"display","inline-flex":"display",grid:"display","inline-grid":"display","max-content":"width","min-content":"width","fit-content":"width","fill-available":"width","contain-floats":"width"};a.functions=[];a.keywords=[];var e=document.createElement("div").style,k;for(k in d){var g=d[k],c=g.property,g=k+"("+g.params+")";!b(g,c)&&b(a.prefix+g,c)&&a.functions.push(k)}for(var l in f)c=f[l],!b(l,c)&&b(a.prefix+l,c)&&a.keywords.push(l)})();(function(){function b(a){h.textContent=a+"{}";return!!h.sheet.cssRules.length}var d={":any-link":null,"::backdrop":null,":fullscreen":null,":full-screen":":fullscreen","::placeholder":null,":placeholder":"::placeholder","::input-placeholder":"::placeholder",":input-placeholder":"::placeholder",":read-only":null,":read-write":null,"::selection":null},e={keyframes:"name",viewport:null,document:'regexp(".")'};a.selectors=[];a.selectorMap={};a.atrules=[];var h=m.appendChild(document.createElement("style")),k;for(k in d){var g=d[k]||k,c=k.replace(/::?/,function(b){return b+a.prefix});!b(g)&&b(c)&&(a.selectors.push(g),a.selectorMap[g]=c)}for(var l in e)d=l+" "+(e[l]||""),!b("@"+d)&&b("@"+a.prefix+d)&&a.atrules.push(l);m.removeChild(h)})();a.valueProperties=["transition","transition-property","will-change"];m.className+=" "+a.prefix;StyleFix.register(a.prefixCSS)}})(document.documentElement);</script>
+
+
+	<script>
+	
+	// Prevent accidental drags
+		function ondragstartReturnFalse() {
+		
+		  var href = document.getElementsByTagName('a');
+		  for(var i = 0; i < href.length; i++) {
+		    href[i].ondragstart = function () {
+		      return false;
+		    }//href[i].ondragstart
+		  }//for
+		
+		}//ondragstartReturnFalse()
+	
+	//stackoverflow.com/questions/1164004/how-to-mark-up-phone-numbers
+	window.onload = function () {
+	  // call on load
+	  ondragstartReturnFalse();
+
+	  if (navigator.userAgent.match (/iPhone/i)) {
+	    var a = document.getElementsByTagName ("a");
+	    for (var i = 0; i < a.length; i++) {
+	      if (a[i].getAttribute ('href').search (/callto:/i) === 0) {
+	        a[i].setAttribute ('href', a[i].getAttribute ('href').replace (/^callto:/, "tel:"));
+	      }
+	    }
+	  }
+
+	};
+	</script>
+</body>
+</html>

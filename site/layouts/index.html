@@ -509,7 +509,7 @@ Dice il saggio. Chi semina raccoglie... speriamo! Per quest'anno abbiamo prepara
 <div class="mt3"><label class="en f6 f5-ns black-70 db fw4 lh-copy ttu tracked-mega" for="email-address" lang="en">Message</label> <label class="it f6 f5-ns black-70 db fw4 lh-copy ttu tracked-mega" for="email-address" lang="it">Il tuo messaggio</label><textarea class="pa2 input-reset bg-black-05 w-100 measure" id="message" name="Messaggio" onblur="showHeader();" onfocus="headerHidden();" rows="4"></textarea></div>
 </fieldset>
 
-<div class="mt3 fr cb cf"><input class="en f6 f5-ns b ph4 pv3 input-reset ba bw2-ns b--black bg-transparent grow pointer ttu tracked-mega" lang="en" type="submit" value="Send" /> <input class="it f6 f5-ns b ph4 pv3 input-reset ba bw2-ns b--black bg-transparent grow pointer ttu tracked-mega" lang="it" type="submit" value="Inviare" /> <input name="_next" type="hidden" value="https:///marzo.li/done/" /></div>
+<div class="mt3 fr cb cf"><input class="en f6 f5-ns b ph4 pv3 input-reset ba bw2-ns b--black bg-transparent grow pointer ttu tracked-mega" lang="en" type="submit" value="Send" /> <input class="it f6 f5-ns b ph4 pv3 input-reset ba bw2-ns b--black bg-transparent grow pointer ttu tracked-mega" lang="it" type="submit" value="Inviare" /> <input name="_next" type="hidden" value="done/" /></div>
 </form>
 </section>
 </article>
@@ -543,19 +543,19 @@ reInitScroll();validateItaliano();};function userLanguage(){if(document.getEleme
 
 
 	<script>
-	
+
 	// Prevent accidental drags
 		function ondragstartReturnFalse() {
-		
+
 		  var href = document.getElementsByTagName('a');
 		  for(var i = 0; i < href.length; i++) {
 		    href[i].ondragstart = function () {
 		      return false;
 		    }//href[i].ondragstart
 		  }//for
-		
+
 		}//ondragstartReturnFalse()
-	
+
 	//stackoverflow.com/questions/1164004/how-to-mark-up-phone-numbers
 	window.onload = function () {
 	  // call on load

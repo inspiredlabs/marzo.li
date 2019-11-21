@@ -1,6 +1,7 @@
 baseurl = "https:///marzo.li/"
+#baseurl = "./"
 languageCode = "en-us"
-title = "Homepage"
+title = "Marzo"
 
 ## As of v0.20, all content files include a default "categories" value that's the same as the section. This was a cheap future-proofing method and should/could be changed accordingly.
 [taxonomies]
